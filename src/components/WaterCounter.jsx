@@ -1,16 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 function WaterCounter() {
-    const [count, setCount] = useState(0)
+
+    const initialCount = parseInt(localStorage.getItem('waterCount')) || 0;
+
+    const [count, setCount] = useState(initialCount)
 
     const handleIncrement = () => {
-        setCount((prevCount) => prevCount + 1);
+        const newCount = count + 1;
+        setCount(newCount);
+
+        localStorage.setItem('waterCount', newCount.toString());
     };
 
     const handleReset = () => {
         setCount(0);
+
+        localStorage.setItem('waterCount', '0')
     };
+
+    useEffect(() => {
+        const now = new Date();
+
+        const midnight = new Date(now)
+        midnight.setHours(24,0,0,0)
+        const timeUntilMidnight = midnight - now
+
+        const timeoutId = setTimeout(() => {
+            handleReset()
+        }, timeUntilMidnight)
+
+        return () => clearTimeout(timeoutId)
+    }, [count])
 
     return (
         <>
@@ -24,7 +46,7 @@ function WaterCounter() {
         </div>
 
         <div className="WaterResetButton">
-            <button onClick={handleReset}> Reset </button>
+            <button onClick={handleReset}> Reset my water intake!</button>
         </div>
 
         </div>
