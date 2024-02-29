@@ -1,4 +1,5 @@
 import WaterCounter from '../components/WaterCounter'
+import Playlist from '../components/Playlist'
 
 const Dashboard = () => {
     return (
@@ -6,7 +7,8 @@ const Dashboard = () => {
         <h1>Dashboard</h1>
 
         <WaterCounter />
-        
+        <Playlist />
+
         </div>
     )
 }

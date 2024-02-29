@@ -10,13 +10,17 @@ function WaterCounter() {
     const handleIncrement = () => {
         const newCount = count + 1;
         setCount(newCount);
+        localStorage.setItem('waterCount', newCount.toString());
+    };
 
+    const handleDecrement = () => {
+        const newCount = Math.max(0, count - 1);
+        setCount(newCount);
         localStorage.setItem('waterCount', newCount.toString());
     };
 
     const handleReset = () => {
         setCount(0);
-
         localStorage.setItem('waterCount', '0')
     };
 
@@ -35,22 +39,17 @@ function WaterCounter() {
     }, [count])
 
     return (
-        <>
-        <div>
-        <p>Click the button below to add to your water intake today!</p>
+        <div className="WaterCounter">
+        
+        <p className="WaterCounterDisplay">I've had {count} glasses of water today!</p>
 
-        <div className="WaterCounterCard">
-            <button onClick={handleIncrement}>
-            I've had {count} glasses of water today!
-            </button>
+        <div className="WaterButtons">
+            <button onClick={handleDecrement}></button>
+            <button onClick={handleIncrement}></button>
         </div>
 
-        <div className="WaterResetButton">
-            <button onClick={handleReset}> Reset my water intake!</button>
-        </div>
 
         </div>
-        </>
     )
 }
 
