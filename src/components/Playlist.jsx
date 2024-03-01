@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import SpotifyPlaylist from './SpotifyPlaylist';
 
-
-function Playlist() {
-
-    
+const PlaylistPage = () => {
+    const [spotifyEmbedLink, setSpotifyEmbedLink] = useState('');
 
     return (
-        <div className="Playlist"> Playlist
-
+        <div>
+            <h1>My Awesome Playlist</h1>
+            <SpotifyPlaylist embedLink={spotifyEmbedLink} />
         </div>
-    )
-}
+    );
+};
 
-export default Playlist
+export default PlaylistPage;
