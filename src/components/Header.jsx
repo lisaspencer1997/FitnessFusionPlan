@@ -50,7 +50,7 @@ const profileMenuItems = [
   },
 ];
  
-function ProfileMenu() {
+function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
  
   const closeMenu = () => setIsMenuOpen(false);
@@ -273,3 +273,5 @@ export function ComplexNavbar() {
     </Navbar>
   );
 }
+
+export default Header
