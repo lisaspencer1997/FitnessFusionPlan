@@ -12,9 +12,15 @@ function App() {
     <div>
       <Router>
         <Header />
-        <Sidebar />
-        <FoodPlanner />
-        <ExerciseFinder />
+        <div class="flex">
+          <Sidebar />
+
+          <main class="grid grid-cols-3 gap-3">
+            <div><FoodPlanner /></div>
+            <div><ExerciseFinder /></div>
+          </main>
+          </div>
+        
         <div>
           <Routes>
             <Route path='/' element={<Dashboard />} />
