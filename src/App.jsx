@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
-import Sidebar from './components/Sidebar';
 import Header from './components/Header';
+import FoodPlanner from './components/FoodPlanner';
+import Sidebar from './components/Sidebar';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Header />
         <Sidebar />
+        <FoodPlanner />
         <div>
           <Routes>
             <Route path='/' element={<Dashboard />} />
