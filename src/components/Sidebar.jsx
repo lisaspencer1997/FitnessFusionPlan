@@ -18,25 +18,28 @@ import {
   Cog6ToothIcon,
   InboxIcon,
   PowerIcon,
+  CakeIcon,
+  CalendarDaysIcon,
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
- 
+
 export default function Sidebar() {
   const [open, setOpen] = React.useState(0);
- 
+
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
- 
+
   return (
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4">
-        <Typography variant="h5" color="blue-gray">
-          Sidebar
+        <Typography variant="h3" color="blue-gray">
+          Fitness Fusion Planner 🥦
         </Typography>
       </div>
       <List>
-        <Accordion
+        {/* NOTE: uncomment the accordian below to retrieve the dashboard drop down list if needed */}
+        {/* <Accordion
           open={open === 1}
           icon={
             <ChevronDownIcon
@@ -113,24 +116,34 @@ export default function Sidebar() {
               </ListItem>
             </List>
           </AccordionBody>
-        </Accordion>
-        <hr className="my-2 border-blue-gray-50" />
+        </Accordion> */}
+
+        {/* NOTE: uncomment below for the border*/}
+        {/* <hr className="my-2 border-blue-gray-50" /> */}
         <ListItem>
           <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
+            <PresentationChartBarIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Inbox
-          <ListItemSuffix>
+          Dashboard
+          {/* NOTE: uncomment below if you want to display notifications*/}
+          {/* <ListItemSuffix>
             <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-          </ListItemSuffix>
+          </ListItemSuffix> */}
         </ListItem>
         <ListItem>
           <ListItemPrefix>
-            <UserCircleIcon className="h-5 w-5" />
+            <CalendarDaysIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Profile
+          Training Calendar
         </ListItem>
         <ListItem>
+          <ListItemPrefix>
+            <CakeIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Food Planner
+        </ListItem>
+        {/* NOTE: uncomment the below for the settings and log out buttons if needed*/}
+        {/* <ListItem>
           <ListItemPrefix>
             <Cog6ToothIcon className="h-5 w-5" />
           </ListItemPrefix>
@@ -141,7 +154,7 @@ export default function Sidebar() {
             <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
           Log Out
-        </ListItem>
+        </ListItem> */}
       </List>
     </Card>
   );

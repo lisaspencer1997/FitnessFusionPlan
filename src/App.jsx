@@ -3,6 +3,8 @@ import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
+import FoodPlannerCalendar from './pages/FoodPlannerCalendar';
+import TrainingCalendar from './pages/TrainingCalendar';
 
 function App() {
 
@@ -14,7 +16,9 @@ function App() {
         <div>
           <Routes>
             <Route path='/' element={<Dashboard />} />
-            <Route path='settings' element={<Settings />} />
+            <Route path='TrainingCalendar' element={<TrainingCalendar />} />
+            <Route path='FoodPlannerCalendar' element={<FoodPlannerCalendar />} />
+            <Route path='Settings' element={<Settings />} />
           </Routes>
         </div>
       </Router>
