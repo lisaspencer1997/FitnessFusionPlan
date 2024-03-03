@@ -15,7 +15,7 @@ function RecipeFeed() {
 };
 
 try {
-    const response = await axios.request(options);
+    //const response = await axios.request(options);
     console.log(response.data);
 } catch (error) {
     console.error(error);

@@ -7,6 +7,12 @@ const Navigation = () => {
         <NavLink to="/" end>Dashboard</NavLink>
       </div>
       <div>
+        <NavLink to="TrainingCalendar" end>Training Calendar</NavLink>
+      </div>
+      <div>
+        <NavLink to="FoodPlannerCalendar" end>Food Planner Calendar</NavLink>
+      </div>
+      <div>
         <NavLink to="settings" end>Settings</NavLink>
       </div>
     </nav>

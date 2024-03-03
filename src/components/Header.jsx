@@ -25,36 +25,36 @@ import {
   RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
- 
+
 // profile menu component
 const profileMenuItems = [
+  // {
+  //   label: "My Profile",
+  //   icon: UserCircleIcon,
+  // },
   {
-    label: "My Profile",
-    icon: UserCircleIcon,
-  },
-  {
-    label: "Edit Profile",
+    label: "Settings",
     icon: Cog6ToothIcon,
   },
-  {
-    label: "Inbox",
-    icon: InboxArrowDownIcon,
-  },
-  {
-    label: "Help",
-    icon: LifebuoyIcon,
-  },
-  {
-    label: "Sign Out",
-    icon: PowerIcon,
-  },
+  // {
+  //   label: "Inbox",
+  //   icon: InboxArrowDownIcon,
+  // },
+  // {
+  //   label: "Help",
+  //   icon: LifebuoyIcon,
+  // },
+  // {
+  //   label: "Sign Out",
+  //   icon: PowerIcon,
+  // },
 ];
- 
+
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
+
   const closeMenu = () => setIsMenuOpen(false);
- 
+
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -261,7 +261,7 @@ export function ComplexNavbar() {
         >
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
- 
+
         <Button size="sm" variant="text">
           <span>Log In</span>
         </Button>
