@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const FoodPlannerCalendar = () => {
-    const [calendarData, setCalendarData] = useState({
-        Monday: { breakfast: '', lunch: '', snacks:'', dinner:''},
-        Tuesday: { breakfast: '', lunch: '', snacks:'', dinner:''},
-        Wednesday: { breakfast: '', lunch: '', snacks:'', dinner:''},
-        Thursday: { breakfast: '', lunch: '', snacks:'', dinner:''},
-        Friday: { breakfast: '', lunch: '', snacks:'', dinner:''},
-        Saturday: { breakfast: '', lunch: '', snacks:'', dinner:''},
-        Sunday: { breakfast: '', lunch: '', snacks:'', dinner:''},
-    });
+    const initialData = {
+        Monday: { breakfast: '', lunch: '', snacks: '', dinner: ''},
+        Tuesday: { breakfast: '', lunch: '', snacks: '', dinner: ''},
+        Wednesday: { breakfast: '', lunch: '', snacks: '', dinner: ''},
+        Thursday: { breakfast: '', lunch: '', snacks: '', dinner: ''},
+        Friday: { breakfast: '', lunch: '', snacks: '', dinner: ''},
+        Saturday: { breakfast: '', lunch: '', snacks: '', dinner: ''},
+        Sunday: { breakfast: '', lunch: '', snacks: '', dinner: ''},
+    };
+
+    const [calendarData, setCalendarData] = useState(() => loadFromLocalStorage() || initialData);
+
+    useEffect(() => {
+        localStorage.setItem('foodPlannerData', JSON.stringify(calendarData));
+    }, [calendarData]);
+
+
 
     const handleInputChange = (day, mealType, value) => {
-        setCalendarData(prevData => ({
+        setCalendarData((prevData) => ({
             ...prevData,
             [day]: {
                 ...prevData[day],
@@ -20,6 +28,17 @@ const FoodPlannerCalendar = () => {
             },
         }));
     };
+    
+    function loadFromLocalStorage() {
+        // Load data from local storage on component mount
+        const storedData = JSON.parse(localStorage.getItem('foodPlannerData'));
+        return storedData;
+    }
+
+    const handleSaveButton = () => {
+        localStorage.setItem('foodPlannerData', JSON.stringify(calendarData));
+        console.log('Data saved to local storage:', calendarData);
+    }
 
     return (
         <div className="food-planner-calendar">
@@ -27,7 +46,7 @@ const FoodPlannerCalendar = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>Day</th>
+                        <th></th>
                         <th>Breakfast</th>
                         <th>Lunch</th>
                         <th>Snacks</th>
@@ -73,6 +92,8 @@ const FoodPlannerCalendar = () => {
                     ))}
                 </tbody>
             </table>
+
+            <button onClick={handleSaveButton}>Save meals!</button>
         </div>
     )
 }
