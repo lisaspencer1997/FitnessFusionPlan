@@ -12,16 +12,18 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
+  // PresentationChartBarIcon,
+  // ShoppingBagIcon,
+  // UserCircleIcon,
+  // Cog6ToothIcon,
+  // InboxIcon,
+  // PowerIcon,
   CakeIcon,
   CalendarDaysIcon,
+  HomeIcon,
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { NavLink } from 'react-router-dom';
 
 export default function Sidebar() {
   const [open, setOpen] = React.useState(0);
@@ -121,27 +123,39 @@ export default function Sidebar() {
         {/* NOTE: uncomment below for the border*/}
         {/* <hr className="my-2 border-blue-gray-50" /> */}
         <ListItem>
-          <ListItemPrefix>
-            <PresentationChartBarIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Dashboard
-          {/* NOTE: uncomment below if you want to display notifications*/}
-          {/* <ListItemSuffix>
-            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-          </ListItemSuffix> */}
+          <NavLink to="/" className="flex items-center">
+            <ListItemPrefix>
+              <HomeIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Dashboard
+            {/* NOTE: uncomment below if you want to display notifications*/}
+            {/* <ListItemSuffix>
+              <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+            </ListItemSuffix> */}
+          </NavLink>
         </ListItem>
+
+
         <ListItem>
-          <ListItemPrefix>
-            <CalendarDaysIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Training Calendar
+          <NavLink to="/TrainingCalendar" className="flex items-center">
+            <ListItemPrefix>
+              <CalendarDaysIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Training Calendar
+          </NavLink>
         </ListItem>
+
+
         <ListItem>
-          <ListItemPrefix>
-            <CakeIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Food Planner
+          <NavLink to="/FoodPlannerCalendar" className="flex items-center">
+            <ListItemPrefix>
+              <CakeIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Food Planner
+          </NavLink>
         </ListItem>
+
+
         {/* NOTE: uncomment the below for the settings and log out buttons if needed*/}
         {/* <ListItem>
           <ListItemPrefix>
