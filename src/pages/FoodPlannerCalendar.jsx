@@ -17,8 +17,6 @@ const FoodPlannerCalendar = () => {
         localStorage.setItem('foodPlannerData', JSON.stringify(calendarData));
     }, [calendarData]);
 
-
-
     const handleInputChange = (day, mealType, value) => {
         setCalendarData((prevData) => ({
             ...prevData,
@@ -30,14 +28,8 @@ const FoodPlannerCalendar = () => {
     };
     
     function loadFromLocalStorage() {
-        // Load data from local storage on component mount
         const storedData = JSON.parse(localStorage.getItem('foodPlannerData'));
         return storedData;
-    }
-
-    const handleSaveButton = () => {
-        localStorage.setItem('foodPlannerData', JSON.stringify(calendarData));
-        console.log('Data saved to local storage:', calendarData);
     }
 
     return (
@@ -92,8 +84,6 @@ const FoodPlannerCalendar = () => {
                     ))}
                 </tbody>
             </table>
-
-            <button onClick={handleSaveButton}>Save meals!</button>
         </div>
     )
 }
