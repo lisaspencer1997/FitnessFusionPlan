@@ -1,11 +1,9 @@
-import WaterCounter from '../components/WaterCounter'
-import Playlist from '../components/Playlist'
+import WaterCounter from '../components/DashboardWidgets/WaterCounter'
+import Playlist from '../components/DashboardWidgets/Playlist'
 
 const Dashboard = () => {
     return (
         <div>
-        <h1>Dashboard</h1>
-
         <WaterCounter />
         <Playlist />
 
