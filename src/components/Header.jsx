@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
   Collapse,
@@ -7,60 +7,13 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
  
-function NavList() {
-  return (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-          Pages
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-          Account
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-          Blocks
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-          Docs
-        </a>
-      </Typography>
-    </ul>
-  );
-}
- 
 const Header = ( props ) => {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
  
   const handleWindowResize = () =>
     window.innerWidth >= 960 && setOpenNav(false);
  
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
  
     return () => {
@@ -69,18 +22,14 @@ const Header = ( props ) => {
   }, []);
  
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-6 py-3">
+    <Navbar width="w-full" fullWidth={true} className="rounded-xl shadow-xl shadow-blue-gray-900/5">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
-          as="a"
-          href="#"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5"
-        >
-          Title
+          variant="h4"
+          className="mx-4 cursor-pointer py-1.5"
+        > {props.heading}
         </Typography>
         <div className="hidden lg:block">
-          <NavList />
         </div>
         <IconButton
           variant="text"
@@ -96,7 +45,6 @@ const Header = ( props ) => {
         </IconButton>
       </div>
       <Collapse open={openNav}>
-        <NavList />
       </Collapse>
     </Navbar>
   );
