@@ -3,29 +3,26 @@ import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import FoodPlanner from './components/FoodPlanner';
-import ExerciseFinder from './components/ExerciseFinder';
+import ActivityPlanner from './pages/ActivityPlanner'
+import MyProfile from './pages/MyProfile';
 
 function App() {
 
   return (
-    <div>
+    <div className='bg-gray-200 h-svh p-4'>
       <Router>
-        <Header />
-        <div class="flex">
-          <Sidebar />
-
-          <main class="grid grid-cols-3 gap-3">
-            <div><FoodPlanner /></div>
-            <div><ExerciseFinder /></div>
-          </main>
+        <div className="flex flex-row gap-4">
+          <div className='basis-1/6'>
+            <Sidebar />
           </div>
-        
-        <div>
-          <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='settings' element={<Settings />} />
-          </Routes>
+          <div className='basis-5/6'>
+            <Routes>
+                <Route path='/' element={<Dashboard />} />
+                <Route path='/activity-planner' element={<ActivityPlanner />} />
+                <Route path='/my-profile' element={<MyProfile />} />
+                <Route path='/settings' element={<Settings />} />
+            </Routes>
+          </div>
         </div>
       </Router>
     </div>
@@ -33,3 +30,8 @@ function App() {
 };
 
 export default App;
+
+{/* <main class="grid grid-cols-3 gap-3">
+            <div><FoodPlanner /></div>
+            <div><ExerciseFinder /></div>
+          </main> */}
