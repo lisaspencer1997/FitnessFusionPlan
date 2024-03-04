@@ -4,6 +4,7 @@ import Settings from './pages/Settings';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import ActivityPlanner from './pages/ActivityPlanner'
+import MyProfile from './pages/MyProfile';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/activity-planner' element={<ActivityPlanner />} />
+                <Route path='/my-profile' element={<MyProfile />} />
                 <Route path='/settings' element={<Settings />} />
             </Routes>
           </div>
