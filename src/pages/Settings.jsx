@@ -1,9 +1,11 @@
 import UserForm from '../components/UserForm'
+import Header from '../components/Header';
+
 
 const Settings = () => {
     return (
         <>
-            <h1>Settings</h1>
+            <Header heading='Settings'/>
         </>
     )
 }

@@ -1,9 +1,9 @@
-
+import Header from '../components/Header';
 
 const ActivityPlanner = () => {
     return (
         <>
-            <h1>Activity Planner</h1>
+            <Header heading='Activity Planner'/>
         </>
     )
 }
