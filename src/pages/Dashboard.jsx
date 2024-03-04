@@ -1,13 +1,14 @@
 import WaterCounter from '../components/WaterCounter'
 import NutriCheck from "../components/NutriCheck";
+import Header from '../components/Header';
 
 const Dashboard = () => {
     return (
         <div>
-        <h1>Dashboard</h1>
+        <Header heading='Dashboard'/>
 
-        <WaterCounter />
-        <NutriCheck />
+        {/* <WaterCounter />
+        <NutriCheck /> */}
         
         </div>
     )
