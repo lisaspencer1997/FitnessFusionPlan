@@ -3,7 +3,7 @@ import Form from '../components/Form'
 
 const UserForm = () => {
     return (
-        <div className='h-full'>
+        <div className='container h-full'>
             <Header heading='User Form'/>
             <Form />
         </div>
