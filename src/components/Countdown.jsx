@@ -12,10 +12,20 @@ const CountdownTimer = () => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
+        if (e.target.type === 'date') {
+            setEventData((prevData) => ({
+                ...prevData,
+                eventDateTime: value,
+            }));
+        } else {
         setEventData((prevData) => ({
             ...prevData,
             [name]: value,
-        }));
+            }));
+        }
+
+        console.log("Current State: ", eventData)
+        console.log("Local Storage: ", localStorage.getItem('eventData'))
     };
 
     const saveEventToLocalStorage = () => {
