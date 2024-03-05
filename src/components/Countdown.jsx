@@ -76,11 +76,13 @@ const CountdownTimer = () => {
                 name="eventName"
                 placeholder="Event Name"
                 value={eventData.eventName}
+                onChange={handleInputChange}
             />
             <textarea
                 name="eventDateTime"
                 placeholder="Date and Time"
                 value={eventData.eventDateTime}
+                onChange={handleInputChange}
             />
 
             <div className="countdown-widget">
