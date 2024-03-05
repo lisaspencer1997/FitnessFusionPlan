@@ -17,6 +17,11 @@ const CountdownTimer = () => {
         }));
     };
 
+    const saveEventToLocalStorage = () => {
+        localStorage.setItem('eventData', JSON.stringify(eventData));
+    };
+
+
     const loadEventFromLocalStorage = () => {
         const storedEventData = localStorage.getItem('eventData');
         if (storedEventData) {
@@ -40,7 +45,7 @@ const CountdownTimer = () => {
             setCountdown(`${hours} hours`)
         } else if (minutes > 0) {
             setCountdown(`${minutes} minutes`)
-        } else if (second > 0) {
+        } else if (seconds > 0) {
             setCountdown(`${seconds} seconds`)
         } else {
             setIsEventDay(true);
@@ -48,7 +53,21 @@ const CountdownTimer = () => {
         };
     };
 
-    useEffect
+    useEffect(() => {
+        loadEventFromLocalStorage();
+        calculateCountdown();
+    }, []);
+
+    useEffect(() => {
+        saveEventToLocalStorage();
+        calculateCountdown();
+
+        const countdownInterval = setInterval(() => {
+            calculateCountdown();
+        }, 1000);
+
+        return () => clearInterval(countdownInterval);
+    }, [eventData]);
 
     return (
         <div>
