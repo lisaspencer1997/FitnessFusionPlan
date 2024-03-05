@@ -17,6 +17,11 @@ const CountdownTimer = () => {
                 ...prevData,
                 eventDateTime: value,
             }));
+        } else if (name === 'eventHour' || 'eventMinute') {
+            setEventData((prevData) => ({
+                ...prevData,
+                [name]: parseInt(value, 10),
+            }))
         } else {
         setEventData((prevData) => ({
             ...prevData,
@@ -44,24 +49,32 @@ const CountdownTimer = () => {
         const eventDate = new Date(eventData.eventDateTime);
         const currentDate = new Date();
 
-        const timeDifference = eventDate - currentDate;
-        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+        eventDate.setHours(eventData.eventHour, eventData.eventMinute, 0, 0);
 
-        if (days > 0) {
-            setCountdown(`${days} days`);
-        } else if (hours > 0) {
-            setCountdown(`${hours} hours`)
-        } else if (minutes > 0) {
-            setCountdown(`${minutes} minutes`)
-        } else if (seconds > 0) {
-            setCountdown(`${seconds} seconds`)
+        const timeDifference = eventDate - currentDate;
+
+        if (timeDifference > 0) {
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            if (days > 0) {
+                setCountdown(`${days} days`);
+            } else if (hours > 0) {
+                setCountdown(`${hours} hours`)
+            } else if (minutes > 0) {
+                setCountdown(`${minutes} minutes`)
+            } else if (seconds > 0) {
+                setCountdown(`${seconds} seconds`)
+            } else {
+                setIsEventDay(true);
+                setCountdown('The day is finally here!');
+            };
         } else {
-            setIsEventDay(true);
-            setCountdown('The day is finally here!');
-        };
+            setIsEventDay(true)
+            setCountdown('The day is finally here!')
+        }
     };
 
     useEffect(() => {
