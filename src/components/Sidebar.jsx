@@ -22,11 +22,11 @@ import {
   PlusCircleIcon,
   MinusCircleIcon,
 } from "@heroicons/react/24/solid";
+import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { NavLink } from 'react-router-dom';
 import WaterCounter from './WaterCounter'
 
 const Sidebar = () => {
-
   const [open, setOpen] = useState(0);
 
   const handleOpen = (value) => {
@@ -36,8 +36,8 @@ const Sidebar = () => {
   return (
     <Card className="h-[calc(100vh-2rem)] w-full p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4">
-        <Typography variant="h3" color="blue-gray">
-          FitnessFusion
+        <Typography variant="h5" color="blue-gray">
+          Fitness Fusion 
         </Typography>
       </div>
       <List>
