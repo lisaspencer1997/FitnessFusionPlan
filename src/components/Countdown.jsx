@@ -11,6 +11,7 @@ const CountdownTimer = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+
         setEventData((prevData) => ({
             ...prevData,
             [name]: value,
@@ -78,12 +79,46 @@ const CountdownTimer = () => {
                 value={eventData.eventName}
                 onChange={handleInputChange}
             />
-            <textarea
+
+            <input
+                type="date"
+                name="eventDateTIme"
+                placeholder="Date"
+                value={eventData.eventDateTime}
+                onChange={handleInputChange}
+            />
+
+            <label>Time:</label>
+            <select
+                name="eventHour"
+                value={eventData.eventHour}
+                onChange={handleInputChange}
+            >
+                {[...Array(24).keys()].map((hour) => (
+                    <option key={hour} value={hour}>
+                        {hour}
+                    </option>
+                ))};
+            </select>
+            :
+            <select
+                name="eventMinute"
+                value={eventData.eventMinute}
+                onChange={handleInputChange}
+            >
+                {[...Array(60).keys()].map((minute) => (
+                    <option key={minute} value={minute}>
+                        {minute < 10 ? `0${minute}` : minute}
+                    </option>
+                ))}
+            </select>
+
+            {/* <textarea
                 name="eventDateTime"
                 placeholder="Date and Time"
                 value={eventData.eventDateTime}
                 onChange={handleInputChange}
-            />
+            /> */}
 
             <div className="countdown-widget">
                 <p>{eventData.eventName}</p>
