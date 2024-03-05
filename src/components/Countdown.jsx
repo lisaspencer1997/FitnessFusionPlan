@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 const CountdownTimer = () => {
-    const [eventData, setEventData] = useState({
-        eventName: '',
-        eventDateTime: '',
-    });
+    const getInitialEventData = () => {
+        const storedEventData = localStorage.getItem('eventData');
+        return storedEventData ? JSON.parse(storedEventData) : {
+            eventName: '',
+            eventDateTime: '',
+            eventHour: 0,
+            eventMinute:0,
+        }
+    };
 
+    const [eventData, setEventData] = useState(getInitialEventData);
     const [countdown, setCountdown] = useState('');
     const [isEventDay, setIsEventDay] = useState(false);
 
@@ -17,20 +23,17 @@ const CountdownTimer = () => {
                 ...prevData,
                 eventDateTime: value,
             }));
-        } else if (name === 'eventHour' || 'eventMinute') {
+        } else if (name === 'eventHour' || name === 'eventMinute') {
             setEventData((prevData) => ({
                 ...prevData,
                 [name]: parseInt(value, 10),
             }))
         } else {
-        setEventData((prevData) => ({
-            ...prevData,
-            [name]: value,
+            setEventData((prevData) => ({
+                ...prevData,
+                [name]: value,
             }));
         }
-
-        console.log("Current State: ", eventData)
-        console.log("Local Storage: ", localStorage.getItem('eventData'))
     };
 
     const saveEventToLocalStorage = () => {
@@ -42,6 +45,13 @@ const CountdownTimer = () => {
         const storedEventData = localStorage.getItem('eventData');
         if (storedEventData) {
             setEventData(JSON.parse(storedEventData));
+        } else {
+            setEventData({
+                eventName: '',
+                eventDateTime: '',
+                eventHour: 0,
+                eventMinute: 0,
+            })
         }
     };
 
@@ -78,13 +88,11 @@ const CountdownTimer = () => {
     };
 
     useEffect(() => {
-        loadEventFromLocalStorage();
         calculateCountdown();
-    }, []);
+    }, [eventData]);
 
     useEffect(() => {
         saveEventToLocalStorage();
-        calculateCountdown();
 
         const countdownInterval = setInterval(() => {
             calculateCountdown();
