@@ -51,7 +51,7 @@ const AvatarComponent = () => {
       name="avatarBase64L"
       onChange={handleFileChange}
       accept=".jpeg, .jpg, .png, .webp" // accepting images only
-      size="2097152" // accepting file up to 2 mB
+      size="md" // accepting medium files
       className="block w-full text-sm text-slate-500
           file:py-1.5
           file:px-3
