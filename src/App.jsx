@@ -3,6 +3,7 @@ import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Sidebar from './components/Sidebar';
 import ActivityPlanner from './pages/ActivityPlanner'
+import FoodPlanner from './pages/FoodPlanner'
 import MyProfile from './pages/MyProfile';
 import UserForm from './pages/UserForm';
 
@@ -19,6 +20,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/activity-planner' element={<ActivityPlanner />} />
+                <Route path='/food-planner' element={<FoodPlanner />} />
                 <Route path='/user-form' element={<UserForm />} />
                 <Route path='/my-profile' element={<MyProfile />} />
                 <Route path='/settings' element={<Settings />} />
