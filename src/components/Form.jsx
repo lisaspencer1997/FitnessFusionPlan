@@ -78,6 +78,10 @@ const Form = () => {
     weight: ""
   });
 
+  const saveForm2LocalStorage = (data) => {
+    localStorage.setItem('FitnessFusionConfig', JSON.stringify(data));
+  };
+
   // Set boolean for open/close status
   const [openAlert, setOpenAlert] = useState(false)
 
@@ -102,30 +106,31 @@ const Form = () => {
 
     console.log("Submitted");
     console.log(formData)
-    // const { name, dob, avatarBase64L, milestoneDate, milestoneName, macroNutrient, waterTarget, weight } = formData;
+    const { name, dob, avatarBase64L, milestoneDate, milestoneName, macroNutrient, waterTarget, weight } = formData;
 
-    // // check if one or more fields are empty
-    // if (
-    //     name.trim() !== ""
-    //     && dob !== ""
-    //     && milestoneDate !== ""
-    //     && milestoneName.trim() !== ""
-    //     && avatarBase64L !== ""
-    //     && macroNutrient !== ""
-    //     && waterTarget !== ""
-    //     && weight !== ""
-    // ) {
-    //   // If yes, console.log the form data and handle the alert message
-    //   console.log("Form submitted:", formData);
-    //   setAlertMessage(`Thanks, ${formData.name}! The information have been saved!`);
-    //   setSuccess(true);
-    //   setOpenAlert(true);
-    // } else {
-    //   // if not render a warning alert message
-    //   setAlertMessage("Please filled out all the fields.");
-    //   setSuccess(false);
-    //   setOpenAlert(true);
-    // }
+    // check if one or more fields are empty
+    if (
+        name.trim() !== ""
+        && dob !== ""
+        && milestoneDate !== ""
+        && milestoneName.trim() !== ""
+        && avatarBase64L !== ""
+        && macroNutrient !== ""
+        && waterTarget !== ""
+        && weight !== ""
+    ) {
+      // If yes, console.log the form data and handle the alert message
+      console.log("Form submitted:", formData);
+      setAlertMessage(`Thanks, ${formData.name}! The information have been saved!`);
+      setSuccess(true);
+      setOpenAlert(true);
+      saveForm2LocalStorage(formData);
+    } else {
+      // if not render a warning alert message
+      setAlertMessage("Please filled out all the fields.");
+      setSuccess(false);
+      setOpenAlert(true);
+    }
   };
 
   const StepContent = [
