@@ -1,35 +1,16 @@
 import React, { useState } from 'react';
 
 const SpotifyPlaylist = () => {
-    const [embedLink, setEmbedLink] = useState('');
-
-    const handleInputChange = (e) => {
-        setEmbedLink(e.target.value);
-    };
-
-    const handleSave = () => {
-        console.log("Embed Link Saved: ", embedLink);
-
-    };
+    // The state is not necessary but leaving in case of future development
+    const [embedLink, setEmbedLink] = useState(localStorage.getItem('FitnessFusionConfig') && JSON.parse(localStorage.getItem('FitnessFusionConfig')).playlist);
 
     return (
-        <div>
-            <p>Paste the Spotify embed link below:</p>
-            <textarea
-                placeholder="Enter Spotfy Embed link"
-                value={embedLink}
-                onChange={handleInputChange}
-            />
-
-            <div className="playlist-embed">
-                {embedLink && (
-                    <div dangerouslySetInnerHTML={{ __html: embedLink }} />
-                )}
-            </div>
-
-            <button onClick={handleSave}>Save</button>
-            </div>
+        <div className='mt-3'>
+            {embedLink && (
+                <div dangerouslySetInnerHTML={{ __html: embedLink }} />
+            )}
+        </div>
     )
 }
 
-export default SpotifyPlaylist
+export default SpotifyPlaylist;
