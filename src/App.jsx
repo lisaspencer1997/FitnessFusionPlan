@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
-import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import ActivityPlanner from './pages/ActivityPlanner'
 import MyProfile from './pages/MyProfile';
+import UserForm from './pages/UserForm';
 
 function App() {
 
@@ -19,6 +19,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/activity-planner' element={<ActivityPlanner />} />
+                <Route path='/user-form' element={<UserForm />} />
                 <Route path='/my-profile' element={<MyProfile />} />
                 <Route path='/settings' element={<Settings />} />
             </Routes>
