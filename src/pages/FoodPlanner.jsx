@@ -5,9 +5,12 @@ import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
+// Defining the header
 const TABLE_HEAD = ["Day", "Breakfast", "Lunch", "Snacks", "Dinner"];
 
 const ActivityPlanner = () => {
+
+    // initialisation
     const initialData = {
         Monday: { breakfast: '', lunch: '', snacks: '', dinner: '' },
         Tuesday: { breakfast: '', lunch: '', snacks: '', dinner: '' },
@@ -31,6 +34,7 @@ const ActivityPlanner = () => {
     useEffect(() => {
         localStorage.setItem('foodPlannerData', JSON.stringify(calendarData));
     }, [calendarData]);
+
 
     const getCurrentWeek = () => {
         const currentDate = new Date();
@@ -100,16 +104,20 @@ const ActivityPlanner = () => {
             <Header heading='Weekly Food Planner' />
             <Card className="overflow-x-scroll">
                 <table className="text-left">
+
+                    {/* TABLE HEADER */}
                     <thead>
                         <tr className='border-blue-gray-100 bg-blue-gray-50'>
+
+                            {/* HEADER MAP */}
                             {TABLE_HEAD.map((head, i) => (
                                 <th key={i}
                                     className="border-b px-4"
                                 >
                                     <Typography
-                                        variant="medium"
+                                        variant="small"
                                         color="blue-gray"
-                                        className="font-normal leading-none opacity-70"
+                                        className="font-normal leading-none opacity-70 ps-4"
                                     >
                                         {head}
                                     </Typography>
@@ -128,7 +136,11 @@ const ActivityPlanner = () => {
                             </div>
                         </tr>
                     </thead>
+
+                    {/* TABLE BODY */}
                     <tbody>
+
+                        {/* MAPPING AROUND THE WEEKDAYS */}
                         {currentWeek.map((date, index) => (
                             <tr key={index}>
                                 <td className='p-2 text-center'><Chip className="w-40" value={date.toLocaleDateString('en-GB', { weekday: 'long' })} /></td>
@@ -138,7 +150,11 @@ const ActivityPlanner = () => {
                                         label=""
                                         placeholder=""
                                         type="text"
+
+                                        // Populating with information from the Local Storage, if any
                                         value={calendarData[date.toLocaleDateString('en-GB', { weekday: 'long', })]?.breakfast || ''}
+
+                                        // On change, update the local storage
                                         onChange={(e) => handleInputChange(date.toLocaleDateString('en-GB', { weekday: 'long' }), 'breakfast', e.target.value)}
                                         className='hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
                                     />
