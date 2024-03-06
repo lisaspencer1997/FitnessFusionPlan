@@ -21,9 +21,12 @@ import {
   WrenchIcon,
   PlusCircleIcon,
   MinusCircleIcon,
+  BookOpenIcon,
+
 } from "@heroicons/react/24/solid";
 import { NavLink } from 'react-router-dom';
 import WaterCounter from './WaterCounter'
+import SpotifyPlaylist from './SpotifyPlaylist'
 
 const Sidebar = () => {
   const [open, setOpen] = useState(0);
@@ -36,7 +39,7 @@ const Sidebar = () => {
     <Card className="h-[calc(100vh-2rem)] w-full p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4">
         <Typography variant="h5" color="blue-gray">
-          Fitness Fusion 
+          Fitness Fusion
         </Typography>
       </div>
       <List>
@@ -51,7 +54,13 @@ const Sidebar = () => {
           <ListItemPrefix>
             <CalendarDaysIcon className="h-5 w-5" />
           </ListItemPrefix>
-          <NavLink to="/activity-planner" end>Activity Planner</NavLink>
+          <NavLink to="/activity-planner" end>Weekly Activity Planner</NavLink>
+        </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <BookOpenIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          <NavLink to="/food-planner" end>Weekly Food Planner</NavLink>
         </ListItem>
         <ListItem>
           <ListItemPrefix>
@@ -95,17 +104,20 @@ const Sidebar = () => {
                 </ListItemPrefix>
                 Water Counter
               </div>
-                <ButtonGroup fullWidth={true} className='mt-3'>
-                  <Button><MinusCircleIcon /></Button>
-                  <Button disabled={true}>600 ml</Button>
-                  <Button><PlusCircleIcon /></Button>
-                </ButtonGroup>
+              <ButtonGroup fullWidth={true} className=''>
+                <Button><MinusCircleIcon /></Button>
+                <Button disabled={true}>600 ml</Button>
+                <Button><PlusCircleIcon /></Button>
+              </ButtonGroup>
             </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <MusicalNoteIcon strokeWidth={3} className="h-3 w-5" />
-              </ListItemPrefix>
-              Music Playlist
+            <ListItem className="flex flex-col" ripple={false}>
+              <div className="flex flex-row me-auto">
+                <ListItemPrefix>
+                  <MusicalNoteIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+                Music Playlist
+              </div>
+              <SpotifyPlaylist />
             </ListItem>
           </List>
         </AccordionBody>
