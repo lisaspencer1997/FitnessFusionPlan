@@ -97,17 +97,17 @@ const ActivityPlanner = () => {
 
     return (
         <div className='flex flex-col gap-2 h-full'>
-            <Header heading='Food Planner' />
-            <Card className="h-full w-full overflow-scroll">
-                <table className="table-auto text-left">
+            <Header heading='Weekly Food Planner' />
+            <Card className="overflow-x-scroll">
+                <table className="text-left">
                     <thead>
                         <tr className='border-blue-gray-100 bg-blue-gray-50'>
                             {TABLE_HEAD.map((head, i) => (
                                 <th key={i}
-                                    className="border-b p-4"
+                                    className="border-b px-4"
                                 >
                                     <Typography
-                                        variant="small"
+                                        variant="medium"
                                         color="blue-gray"
                                         className="font-normal leading-none opacity-70"
                                     >
@@ -115,13 +115,13 @@ const ActivityPlanner = () => {
                                     </Typography>
                                 </th>
                             ))}
-                            <div className="flex items-center gap-4">
+                            <div className="p-2">
                                 <Button
                                     onClick={clearLocalStorageAndContent}
                                     color='red'
                                     fullWidth={true}
                                     ripple={true}
-                                    className='rounded-full'
+                                    size='lg'
                                 >
                                     <FontAwesomeIcon icon={faTrash} />
                                 </Button>
@@ -132,7 +132,7 @@ const ActivityPlanner = () => {
                         {currentWeek.map((date, index) => (
                             <tr key={index}>
                                 <td className='p-2 text-center'><Chip className="w-40" value={date.toLocaleDateString('en-GB', { weekday: 'long' })} /></td>
-                                <td>
+                                <td className='px-4'>
                                     <Input
                                         variant="standard"
                                         label=""
@@ -140,10 +140,10 @@ const ActivityPlanner = () => {
                                         type="text"
                                         value={calendarData[date.toLocaleDateString('en-GB', { weekday: 'long', })]?.breakfast || ''}
                                         onChange={(e) => handleInputChange(date.toLocaleDateString('en-GB', { weekday: 'long' }), 'breakfast', e.target.value)}
-                                        className='border-b-0 hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
+                                        className='hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
                                     />
                                 </td>
-                                <td>
+                                <td className='px-4'>
                                     <Input
                                         variant="standard"
                                         label=""
@@ -151,10 +151,10 @@ const ActivityPlanner = () => {
                                         type="text"
                                         value={calendarData[date.toLocaleDateString('en-GB', { weekday: 'long', })]?.lunch || ''}
                                         onChange={(e) => handleInputChange(date.toLocaleDateString('en-GB', { weekday: 'long' }), 'lunch', e.target.value)}
-                                        className='border-b-0 hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
+                                        className='hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
                                     />
                                 </td>
-                                <td>
+                                <td className='px-4'>
                                     <Input
                                         variant="standard"
                                         label=""
@@ -162,10 +162,10 @@ const ActivityPlanner = () => {
                                         type="text"
                                         value={calendarData[date.toLocaleDateString('en-GB', { weekday: 'long', })]?.snacks || ''}
                                         onChange={(e) => handleInputChange(date.toLocaleDateString('en-GB', { weekday: 'long' }), 'snacks', e.target.value)}
-                                        className='border-b-0 hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
+                                        className='hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
                                     />
                                 </td>
-                                <td>
+                                <td className='px-4'>
                                     <Input
                                         variant="standard"
                                         label=""
@@ -173,7 +173,7 @@ const ActivityPlanner = () => {
                                         type="text"
                                         value={calendarData[date.toLocaleDateString('en-GB', { weekday: 'long', })]?.dinner || ''}
                                         onChange={(e) => handleInputChange(date.toLocaleDateString('en-GB', { weekday: 'long' }), 'dinner', e.target.value)}
-                                        className='border-b-0 hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
+                                        className='hover:bg-blue-gray-100/80 px-4 hover:cursor-pointer'
                                     />
                                 </td>
                             </tr>
