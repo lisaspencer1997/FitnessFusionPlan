@@ -8,10 +8,25 @@ const AvatarComponent = () => {
   const handleFileChange = async (event) => {
     // get the image
     const image = event.target.files[0];
+
+    // if the image is there
+    if (image) {
+      try {
+        // convert the image
+        const base64Image = await image2base64(image);
+        // use the set State to assign to base64Image
+        setBase64Image(base64Image);
+        //store it in the Local Storage
+        localStorage.setItem('base64Image', base64Image);
+      } catch (error) {
+        // handle errors
+        console.error('Error converting image to base64:', error);
+      }
+    }
   };
 
   // function to convert image to base64
-  //! code from MDN WEB DOCS https://developer.mozilla.org/pt-BR/docs/Web/API/FileReader/load_event
+  //! code from MDN WEB DOCS https://developer.mozilla.org/en-US/docs/Web/API/FileReader/load_event
   const image2base64 = (image) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
