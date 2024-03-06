@@ -25,14 +25,33 @@ const Form = () => {
   const [dobDate, setDobDate] = React.useState();
   const [milestoneDate, setMilestoneDate] = React.useState();
 
+  const [selectedMacro, setSelectedMacro] = useState("");
+
+  const handleMacroChange = (selectedMacro) => {
+    setSelectedMacro(selectedMacro);
+    console.log("Selected Macro:", selectedMacro);
+    setFormData({
+      ...formData,
+      macroNutrient: selectedMacro,
+    });
+  };
+
   const handleMilestoneDate = (selectedDate) => {
     console.log(selectedDate);
     setMilestoneDate(selectedDate);
+    setFormData({
+      ...formData,
+      milestoneDate: selectedDate,
+    });
   };
 
   const handleDobDate = (selectedDate) => {
     console.log(selectedDate);
     setDobDate(selectedDate);
+    setFormData({
+      ...formData,
+      dob: selectedDate,
+    });
   };
 
   const [activeStep, setActiveStep] = useState(0);
@@ -82,31 +101,31 @@ const Form = () => {
     event.preventDefault();
 
     console.log("Submitted");
-    const { name, dob, avatarBase64L, milestoneDate, milestoneName, macroNutrient, waterTarget, weight } = formData;
+    console.log(formData)
+    // const { name, dob, avatarBase64L, milestoneDate, milestoneName, macroNutrient, waterTarget, weight } = formData;
 
-    // check if one or more fields are empty
-    if (
-        name.trim() !== ""
-        && dob !== ""
-        && milestoneDate !== ""
-        && milestoneName.trim() !== ""
-        && avatarBase64L !== ""
-        && macroNutrient !== ""
-        && waterTarget !== ""
-        && weight !== ""
-    ) {
-      // If yes, console.log the form data and handle the alert message
-      console.log("Form submitted:", formData);
-      setAlertMessage(`Thanks, ${formData.name}! The information have been saved!`);
-      setSuccess(true);
-      setOpenAlert(true);
-    } else {
-
-      // if not render a warning alert message
-      setAlertMessage("Please filled out all the fields.");
-      setSuccess(false);
-      setOpenAlert(true);
-    }
+    // // check if one or more fields are empty
+    // if (
+    //     name.trim() !== ""
+    //     && dob !== ""
+    //     && milestoneDate !== ""
+    //     && milestoneName.trim() !== ""
+    //     && avatarBase64L !== ""
+    //     && macroNutrient !== ""
+    //     && waterTarget !== ""
+    //     && weight !== ""
+    // ) {
+    //   // If yes, console.log the form data and handle the alert message
+    //   console.log("Form submitted:", formData);
+    //   setAlertMessage(`Thanks, ${formData.name}! The information have been saved!`);
+    //   setSuccess(true);
+    //   setOpenAlert(true);
+    // } else {
+    //   // if not render a warning alert message
+    //   setAlertMessage("Please filled out all the fields.");
+    //   setSuccess(false);
+    //   setOpenAlert(true);
+    // }
   };
 
   const StepContent = [
@@ -209,6 +228,7 @@ const Form = () => {
         <div className="flex flex-row gap-2">
           <Input label="Milestone Name"
             placeholder=" "
+            name="milestoneName"
             value={formData.milestoneName}
             onChange={handleInputChange}
           />
@@ -305,12 +325,12 @@ const Form = () => {
           <Select
             label="Select a macronutrient"
             name="macroNutrient"
-            value={formData.macroNutrient}
-            onChange={(e) => (console.log(e))}
+            value={selectedMacro}
+            onChange={handleMacroChange}
           >
-            <Option>Protein</Option>
-            <Option>Carbohydrates</Option>
-            <Option>Fats</Option>
+            <Option value="protein">Protein</Option>
+            <Option value="carbohydrates">Carbohydrates</Option>
+            <Option value="fats">Fats</Option>
           </Select>
         </div>
         <div className="w-full">
