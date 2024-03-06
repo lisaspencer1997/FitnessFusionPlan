@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import AvatarComponent from '../components/AvatarComponent'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWeightScale } from '@fortawesome/free-solid-svg-icons'
+import { format } from "date-fns";
+import { DayPicker } from "react-day-picker";
+import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import {
   Stepper,
   Step,
@@ -13,13 +19,6 @@ import {
   Option
 } from "@material-tailwind/react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWeightScale } from '@fortawesome/free-solid-svg-icons'
-
-import { format } from "date-fns";
-import { DayPicker } from "react-day-picker";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
-
 const Form = () => {
 
   const [dobDate, setDobDate] = React.useState();
@@ -29,7 +28,6 @@ const Form = () => {
 
   const handleMacroChange = (selectedMacro) => {
     setSelectedMacro(selectedMacro);
-    console.log("Selected Macro:", selectedMacro);
     setFormData({
       ...formData,
       macroNutrient: selectedMacro,
@@ -37,7 +35,6 @@ const Form = () => {
   };
 
   const handleMilestoneDate = (selectedDate) => {
-    console.log(selectedDate);
     setMilestoneDate(selectedDate);
     setFormData({
       ...formData,
@@ -46,7 +43,6 @@ const Form = () => {
   };
 
   const handleDobDate = (selectedDate) => {
-    console.log(selectedDate);
     setDobDate(selectedDate);
     setFormData({
       ...formData,
@@ -70,7 +66,6 @@ const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
     dob: "",
-    avatarBase64L: "",
     milestoneName: "",
     milestoneDate: "",
     macroNutrient: "",
@@ -78,6 +73,7 @@ const Form = () => {
     weight: ""
   });
 
+  // save to local storage function
   const saveForm2LocalStorage = (data) => {
     localStorage.setItem('FitnessFusionConfig', JSON.stringify(data));
   };
@@ -92,7 +88,6 @@ const Form = () => {
   // Function to handle input change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log(`Setting ${[name]}: ${value}`)
     setFormData({
       ...formData,
       [name]: value,
@@ -104,20 +99,17 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log("Submitted");
-    console.log(formData)
-    const { name, dob, avatarBase64L, milestoneDate, milestoneName, macroNutrient, waterTarget, weight } = formData;
+    const { name, dob, milestoneDate, milestoneName, macroNutrient, waterTarget, weight } = formData;
 
     // check if one or more fields are empty
     if (
-        name.trim() !== ""
-        && dob !== ""
-        && milestoneDate !== ""
-        && milestoneName.trim() !== ""
-        && avatarBase64L !== ""
-        && macroNutrient !== ""
-        && waterTarget !== ""
-        && weight !== ""
+      name.trim() !== ""
+      && dob !== ""
+      && milestoneDate !== ""
+      && milestoneName.trim() !== ""
+      && macroNutrient !== ""
+      && waterTarget !== ""
+      && weight !== ""
     ) {
       // If yes, console.log the form data and handle the alert message
       console.log("Form submitted:", formData);
@@ -198,27 +190,7 @@ const Form = () => {
           </PopoverContent>
         </Popover>
         <div className="relative flex w-full">
-          <Input
-            type="file"
-            label="Upload an avatar"
-            name="avatarBase64L"
-            value={formData.avatarBase64L}
-            onChange={handleInputChange}
-            className="block w-full text-sm text-slate-500
-            file:py-1.5
-            file:px-3
-            file:mt-1
-            file:border-0
-            file:text-sm
-            file:font-semibold
-            file:bg-gray-900
-            file:text-white
-            file:!absolute
-            file:right-0
-            file:top-0
-            file:rounded-md
-            hover:file:cursor-pointer"
-          />
+            <AvatarComponent />
         </div>
       </div>
 
@@ -356,11 +328,14 @@ const Form = () => {
   ];
 
   return (
+    //Form component
     <form className="w-full h-[calc(100%-5rem)] p-10 flex flex-col gap-8" onSubmit={handleSubmit}>
 
+      {/* Displaying related content based on the stepper position */}
       {StepContent[activeStep]}
 
       <div className="mt-auto">
+        {/* Stepper component */}
         <Stepper
           activeStep={activeStep}
           isLastStep={(value) => setIsLastStep(value)}
@@ -374,7 +349,8 @@ const Form = () => {
           <Button onClick={handlePrev} disabled={isFirstStep}>
             Prev
           </Button>
-          { isLastStep ? (
+          {/* Checking if it's the last step to display Save 🎉 label */}
+          {isLastStep ? (
             <Button onClick={handleNext} type="submit">
               Save 🎉
             </Button>
