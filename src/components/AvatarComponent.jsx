@@ -45,7 +45,28 @@ const AvatarComponent = () => {
 
   // input file component
   return (
-      <Input />
+    <Input
+      type="file"
+      label="Upload an avatar"
+      name="avatarBase64L"
+      onChange={handleFileChange}
+      accept=".jpeg, .jpg, .png, .webp" // accepting images only
+      size="2097152" // accepting file up to 2 mB
+      className="block w-full text-sm text-slate-500
+          file:py-1.5
+          file:px-3
+          file:mt-1
+          file:border-0
+          file:text-sm
+          file:font-semibold
+          file:bg-gray-900
+          file:text-white
+          file:!absolute
+          file:right-0
+          file:top-0
+          file:rounded-md
+          hover:file:cursor-pointer"
+    />
   );
 };
 
