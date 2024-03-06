@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Typography,
   Button,
@@ -14,7 +14,7 @@ import {
   Cog6ToothIcon,
 } from "@heroicons/react/24/solid";
 import { NavLink } from 'react-router-dom';
- 
+
 // profile menu component
 const profileMenuItems = [
   {
@@ -28,14 +28,35 @@ const profileMenuItems = [
     icon: Cog6ToothIcon,
   },
 ];
- 
+
+// component
 const ProfileAvatar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
+
+  const [loadedBase64Image, setLoadedBase64Image] = useState('');
+
+  useEffect(() => {
+    loadBase64ImageFromLocalStorage();
+  }, [loadedBase64Image]);
+
+  // Load the stored image and set using react state
+  const loadBase64ImageFromLocalStorage = () => {
+    try {
+      const storedImage = localStorage.getItem('base64Image');
+      if (storedImage) {
+        setLoadedBase64Image(storedImage);
+      }
+    } catch (error) {
+      console.error('Error loading base64 image from local storage:', error);
+    }
+  };
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
- 
+
   return (
+
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
+
       <MenuHandler>
         <Button
           variant="text"
@@ -47,16 +68,16 @@ const ProfileAvatar = () => {
             size="sm"
             alt="tania andrew"
             className="border border-gray-900 p-0.5"
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+            src={loadedBase64Image ? loadedBase64Image : '/images/defaultAvatar.png'}
           />
           <ChevronDownIcon
             strokeWidth={2.5}
-            className={`h-3 w-3 transition-transform ${
-              isMenuOpen ? "rotate-180" : ""
-            }`}
+            className={`h-3 w-3 transition-transform ${isMenuOpen ? "rotate-180" : ""
+              }`}
           />
         </Button>
       </MenuHandler>
+
       <MenuList className="p-1">
         {profileMenuItems.map(({ label, icon, path }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
@@ -64,28 +85,27 @@ const ProfileAvatar = () => {
             <MenuItem
               key={label}
               onClick={closeMenu}
-              className={`flex items-center gap-2 rounded ${
-                isLastItem
-                  ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                  : ""
-              }`}
+              className={`flex items-center gap-2 rounded ${isLastItem
+                ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+                : ""
+                }`}
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+                className: "h-4 w-4",
                 strokeWidth: 2,
               })}
               <Typography
                 as="span"
                 variant="paragraph"
                 className="font-normal"
-                color={isLastItem ? "red" : "inherit"}
               >
-                 <NavLink to={path} end>{label}</NavLink>
+                <NavLink to={path} end>{label}</NavLink>
               </Typography>
             </MenuItem>
           );
         })}
       </MenuList>
+
     </Menu>
   );
 }
