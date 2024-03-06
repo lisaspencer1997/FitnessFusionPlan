@@ -59,6 +59,12 @@ const Sidebar = () => {
           </ListItemPrefix>
           <NavLink to="/settings" end>Settings</NavLink>
         </ListItem>
+        <ListItem>
+          <ListItemPrefix>
+            <Cog6ToothIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          <NavLink to="/user-form" end>User Form</NavLink>
+        </ListItem>
       </List>
       <hr className="my-2 border-blue-gray-50" />
       <Accordion
