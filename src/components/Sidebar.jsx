@@ -22,7 +22,6 @@ import {
   PlusCircleIcon,
   MinusCircleIcon,
 } from "@heroicons/react/24/solid";
-
 import { NavLink } from 'react-router-dom';
 import WaterCounter from './WaterCounter'
 
