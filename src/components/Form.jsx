@@ -22,8 +22,18 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 
 const Form = () => {
 
-  const [date, setDate] = useState();
-  const [dob, setDob] = useState();
+  const [dobDate, setDobDate] = React.useState();
+  const [milestoneDate, setMilestoneDate] = React.useState();
+
+  const handleMilestoneDate = (selectedDate) => {
+    console.log(selectedDate);
+    setMilestoneDate(selectedDate);
+  };
+
+  const handleDobDate = (selectedDate) => {
+    console.log(selectedDate);
+    setDobDate(selectedDate);
+  };
 
   const [activeStep, setActiveStep] = useState(0);
   const [isLastStep, setIsLastStep] = useState(false);
@@ -40,9 +50,13 @@ const Form = () => {
   // Set form data value
   const [formData, setFormData] = useState({
     name: "",
-    DOB: "",
+    dob: "",
+    avatarBase64L: "",
+    milestoneName: "",
     milestoneDate: "",
-    milestoneLabel: ""
+    macroNutrient: "",
+    waterTarget: "",
+    weight: ""
   });
 
   // Set boolean for open/close status
@@ -55,6 +69,7 @@ const Form = () => {
   // Function to handle input change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    console.log(`Setting ${[name]}: ${value}`)
     setFormData({
       ...formData,
       [name]: value,
@@ -65,18 +80,23 @@ const Form = () => {
   // Function to handle form submit
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { name, email, message } = formData;
+
+    console.log("Submitted");
+    const { name, dob, avatarBase64L, milestoneDate, milestoneName, macroNutrient, waterTarget, weight } = formData;
 
     // check if one or more fields are empty
-    if (name.trim() !== "" && DOB.trim() !== "" && milestoneDate !== "" && milestoneLabel !== "") {
+    if (
+        name.trim() !== ""
+        && dob !== ""
+        && milestoneDate !== ""
+        && milestoneName.trim() !== ""
+        && avatarBase64L !== ""
+        && macroNutrient !== ""
+        && waterTarget !== ""
+        && weight !== ""
+    ) {
       // If yes, console.log the form data and handle the alert message
       console.log("Form submitted:", formData);
-      setFormData({
-        name: "",
-        DOB: "",
-        milestoneDate: "",
-        milestoneLabel: ""
-      });
       setAlertMessage(`Thanks, ${formData.name}! The information have been saved!`);
       setSuccess(true);
       setOpenAlert(true);
@@ -95,7 +115,7 @@ const Form = () => {
         Tell us a bit of yourself 😀
       </Typography>
       <Input
-        label="First Name"
+        label="How shall I call you?"
         placeholder=""
         name="name"
         value={formData.name}
@@ -107,15 +127,16 @@ const Form = () => {
           <PopoverHandler>
             <Input
               label="Date of Birthday"
+              mode="single"
               onChange={() => null}
-              value={dob ? format(dob, "PPP") : ""}
+              value={dobDate ? format(dobDate, "PPP") : ""}
             />
           </PopoverHandler>
           <PopoverContent>
             <DayPicker
               mode="single"
-              selected={dob}
-              onSelect={setDob}
+              selected={dobDate}
+              onSelect={handleDobDate}
               showOutsideDays
               className="border-0"
               classNames={{
@@ -156,6 +177,9 @@ const Form = () => {
           <Input
             type="file"
             label="Upload an avatar"
+            name="avatarBase64L"
+            value={formData.avatarBase64L}
+            onChange={handleInputChange}
             className="block w-full text-sm text-slate-500
             file:py-1.5
             file:px-3
@@ -185,8 +209,7 @@ const Form = () => {
         <div className="flex flex-row gap-2">
           <Input label="Milestone Name"
             placeholder=" "
-            name="milestoneLabel"
-            value={formData.milestoneLabel}
+            value={formData.milestoneName}
             onChange={handleInputChange}
           />
 
@@ -195,14 +218,14 @@ const Form = () => {
               <Input
                 label="Milestone Date"
                 onChange={() => null}
-                value={date ? format(date, "PPP") : ""}
+                value={milestoneDate ? format(milestoneDate, "PPP") : ""}
               />
             </PopoverHandler>
             <PopoverContent>
               <DayPicker
                 mode="single"
-                selected={date}
-                onSelect={setDate}
+                selected={milestoneDate}
+                onSelect={handleMilestoneDate}
                 showOutsideDays
                 className="border-0"
                 classNames={{
@@ -241,7 +264,13 @@ const Form = () => {
           </Popover>
         </div>
         <div className="w-full">
-          <Input type="number" label="Your ideal weight" icon={<FontAwesomeIcon icon={faWeightScale} />} />
+          <Input
+            type="number"
+            label="Your ideal weight"
+            name="weight"
+            value={formData.weight}
+            onChange={handleInputChange}
+            icon={<FontAwesomeIcon icon={faWeightScale} />} />
           <Typography
             variant="small"
             color="gray"
@@ -273,7 +302,12 @@ const Form = () => {
       <div className="flex flex-row gap-2">
 
         <div className="w-full">
-          <Select label="Select a macronutrient">
+          <Select
+            label="Select a macronutrient"
+            name="macroNutrient"
+            value={formData.macroNutrient}
+            onChange={(e) => (console.log(e))}
+          >
             <Option>Protein</Option>
             <Option>Carbohydrates</Option>
             <Option>Fats</Option>
@@ -282,8 +316,10 @@ const Form = () => {
         <div className="w-full">
           <Input
             label="Your water target in Litres"
-            placeholder="1"
             name="waterTarget"
+            value={formData.waterTarget}
+            onChange={handleInputChange}
+            placeholder="1"
             type="number"
             step="0.20"
             min="0"
@@ -295,7 +331,7 @@ const Form = () => {
   ];
 
   return (
-    <div className="w-full h-[calc(100%-5rem)] p-10 flex flex-col gap-8">
+    <form className="w-full h-[calc(100%-5rem)] p-10 flex flex-col gap-8" onSubmit={handleSubmit}>
 
       {StepContent[activeStep]}
 
@@ -313,13 +349,19 @@ const Form = () => {
           <Button onClick={handlePrev} disabled={isFirstStep}>
             Prev
           </Button>
-          <Button onClick={handleNext} disabled={isLastStep}>
-            Next
-          </Button>
+          { isLastStep ? (
+            <Button onClick={handleNext} type="submit">
+              Save 🎉
+            </Button>
+          ) : (
+            <Button onClick={handleNext} disabled={isLastStep}>
+              Next
+            </Button>
+          )}
         </div>
       </div>
 
-    </div>
+    </form>
   );
 }
 
