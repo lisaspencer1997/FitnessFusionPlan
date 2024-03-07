@@ -15,7 +15,7 @@ const DailyMealPlan = ({ mealPlan, currentDay }) => {
     }
 
     return (
-        <Card>
+        <div>
             <List>
                 <ListItem className="p-0">
                     <label
@@ -98,7 +98,7 @@ const DailyMealPlan = ({ mealPlan, currentDay }) => {
                     </label>
                 </ListItem>
             </List>
-        </Card>
+        </div>
     );
 };
 
