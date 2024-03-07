@@ -74,7 +74,7 @@ const NutriFact = () => {
 
             {nutritionData && (
                 <div>
-                    <Card className="overflow-hidden">
+                    <Card className="overflow-hidden shadow-lg">
                         <CardBody>
                             <Typography variant="h4" color="blue-gray">
                                 Showing information about {query}
