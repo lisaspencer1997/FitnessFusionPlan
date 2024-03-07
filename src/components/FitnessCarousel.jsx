@@ -35,7 +35,7 @@ const FitnessCarousel = () => {
         <img
           key={index}
           src={url}
-          autoplay={true}
+          autoPlay={true}
           loop={true}
           alt="fitness image carousel"
           className="h-full w-full object-cover"
