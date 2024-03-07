@@ -9,6 +9,7 @@ import {
   PopoverContent,
   Button,
 } from "@material-tailwind/react";
+import { NavLink } from 'react-router-dom';
 
 const CountdownComponent = () => {
   const [countdown, setCountdown] = useState(null);
@@ -69,7 +70,14 @@ const CountdownComponent = () => {
           </CardFooter>
         </div>
       ) : (
-        <p>No milestone data found</p>
+        <div>
+        <CardBody className="text-center">
+            <Typography variant="h6" color="blue-gray">
+                No milestones found! 🥱 <br/>
+                Visit the <span className="underline"><NavLink to="/settings" end>Settings</NavLink></span> and follow the steps.
+            </Typography>
+        </CardBody>
+    </div>
       )}
     </div>
   );

@@ -97,7 +97,7 @@ const ExerciseComponent = () => {
           value={muscle}
           onChange={handleMuscleChange}
         >
-          <Option value="">Select a muscle...</Option>
+          <Option value="">Pick one!</Option>
           <Option value="Biceps">Biceps</Option>
           <Option value="Triceps">Triceps</Option>
           <Option value="Chest">Chest</Option>
