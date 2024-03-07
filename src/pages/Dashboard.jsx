@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Countdown from '../components/Countdown';
 import FitnessCarousel from '../components/FitnessCarousel';
 import NextMealWidget from "../components/NextMealWidget";
+import NextActivity from "../components/NextActivity";
 import {
     Card,
     Typography,
@@ -20,9 +21,7 @@ const Dashboard = () => {
 
             {/* Widget Next Activity */}
             <Card className='col-start-1 col-span-2'>
-                <Typography variant="h5" color="blue-gray">
-                    Widget 1
-                </Typography>
+                <NextActivity />
             </Card>
 
             {/* Widget Next Milestone */}

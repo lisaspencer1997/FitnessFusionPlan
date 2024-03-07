@@ -1,10 +1,10 @@
 import {
     Checkbox,
-    Card,
     List,
     ListItem,
     ListItemPrefix,
     Typography,
+    CardBody
 } from "@material-tailwind/react";
 
 const DailyMealPlan = ({ mealPlan, currentDay }) => {
@@ -16,6 +16,11 @@ const DailyMealPlan = ({ mealPlan, currentDay }) => {
 
     return (
         <div>
+            <CardBody>
+                <Typography variant="h5" color="blue-gray" className="mb-2">
+                    Here is your meal plan for today:
+                </Typography>
+            </CardBody>
             <List>
                 <ListItem className="p-0">
                     <label

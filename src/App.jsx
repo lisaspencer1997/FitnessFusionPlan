@@ -10,13 +10,13 @@ import UserForm from './pages/UserForm';
 function App() {
 
   return (
-    <div className='bg-gray-200 h-svh p-4'>
+    <div className='bg-gray-200 h-dvh'>
       <Router>
-        <div className="flex flex-row gap-4">
-          <div className='basis-1/6'>
+        <div className="flex flex-row gap-2">
+          <div>
             <Sidebar />
           </div>
-          <div className='basis-5/6'>
+          <div className='flex-1 h-screen pe-4'>
             <Routes>
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/activity-planner' element={<ActivityPlanner />} />
@@ -33,8 +33,3 @@ function App() {
 };
 
 export default App;
-
-{/* <main class="grid grid-cols-3 gap-3">
-            <div><FoodPlanner /></div>
-            <div><ExerciseFinder /></div>
-          </main> */}
