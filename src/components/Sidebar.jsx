@@ -71,7 +71,7 @@ const Sidebar = () => {
               <ListItemPrefix>
                 <CalendarDaysIcon className="h-5 w-5" />
               </ListItemPrefix>
-              <NavLink to="/activity-planner" end>Weekly Activity Planner</NavLink>
+              <NavLink to="/activity-planner" end>Monthly Activity Planner</NavLink>
             </ListItem>
             <ListItem>
               <ListItemPrefix>
@@ -84,12 +84,6 @@ const Sidebar = () => {
                 <Cog6ToothIcon className="h-5 w-5" />
               </ListItemPrefix>
               <NavLink to="/settings" end>Settings</NavLink>
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <Cog6ToothIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              <NavLink to="/user-form" end>User Form</NavLink>
             </ListItem>
           </List>
           <hr className="my-2 border-blue-gray-50" />

@@ -338,7 +338,7 @@ const Form = () => {
 
   return (
     //Form component
-    <form className="w-full h-[calc(100%-5rem)] p-10 flex flex-col gap-8" onSubmit={handleSubmit}>
+    <form className="w-full h-[calc(100%-7rem)] p-10 flex flex-col gap-8 bg-white my-4 rounded-lg" onSubmit={handleSubmit}>
 
       {/* Displaying related content based on the stepper position */}
       {StepContent[activeStep]}
