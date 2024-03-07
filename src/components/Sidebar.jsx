@@ -19,8 +19,6 @@ import {
   MusicalNoteIcon,
   CheckIcon,
   WrenchIcon,
-  PlusCircleIcon,
-  MinusCircleIcon,
   BookOpenIcon,
 
 } from "@heroicons/react/24/solid";
@@ -104,11 +102,7 @@ const Sidebar = () => {
                 </ListItemPrefix>
                 Water Counter
               </div>
-              <ButtonGroup fullWidth={true} className=''>
-                <Button><MinusCircleIcon /></Button>
-                <Button disabled={true}>600 ml</Button>
-                <Button><PlusCircleIcon /></Button>
-              </ButtonGroup>
+              <WaterCounter />
             </ListItem>
             <ListItem className="flex flex-col" ripple={false}>
               <div className="flex flex-row me-auto">
