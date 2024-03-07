@@ -51,7 +51,7 @@ const NutriFact = () => {
                 <div className="relative flex w-full mt-4">
                     <Input
                         type="text"
-                        label="Search one ingredient or more, comma separated. You can also specify the quantity."
+                        label="Search one or more ingredients"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         className="pr-20"

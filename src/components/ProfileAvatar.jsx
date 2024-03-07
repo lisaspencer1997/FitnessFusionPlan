@@ -7,6 +7,7 @@ import {
   MenuList,
   MenuItem,
   Avatar,
+  Badge
 } from "@material-tailwind/react";
 import {
   UserCircleIcon,
@@ -19,13 +20,15 @@ import { NavLink } from 'react-router-dom';
 const profileMenuItems = [
   {
     label: "My Profile",
-    path: "/my-profile",
+    path: "/",
     icon: UserCircleIcon,
+    isComingSoon: true
   },
   {
     label: "Settings",
     path: "/settings",
     icon: Cog6ToothIcon,
+    isComingSoon: false
   },
 ];
 
@@ -79,28 +82,27 @@ const ProfileAvatar = () => {
       </MenuHandler>
 
       <MenuList className="p-1">
-        {profileMenuItems.map(({ label, icon, path }, key) => {
-          const isLastItem = key === profileMenuItems.length - 1;
+        {profileMenuItems.map(({ label, icon, path, isComingSoon }, key) => {
           return (
             <MenuItem
-              key={label}
+              key={key}
               onClick={closeMenu}
-              className={`flex items-center gap-2 rounded ${isLastItem
-                ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                : ""
-                }`}
+              className={`flex items-center gap-2 rounded overflow-visible`}
+              disabled={isComingSoon}
             >
               {React.createElement(icon, {
                 className: "h-4 w-4",
                 strokeWidth: 2,
               })}
-              <Typography
-                as="span"
-                variant="paragraph"
-                className="font-normal"
-              >
-                <NavLink to={path} end>{label}</NavLink>
-              </Typography>
+              <Badge content={isComingSoon ? "Coming Soon!" : ""} color={isComingSoon ? "red" : "green"} className="w-auto whitespace-nowrap absolute top-1 -right-2">
+                <Typography
+                  as="span"
+                  variant="paragraph"
+                  className="font-normal w-full"
+                >
+                  <NavLink to={path} end>{label}</NavLink>
+                </Typography>
+              </Badge>
             </MenuItem>
           );
         })}
