@@ -11,16 +11,23 @@ import {
 
 function WaterCounter() {
 
+    const storedConfig = localStorage.getItem('FitnessFusionConfig');
+    const waterTarget = storedConfig ? JSON.parse(storedConfig).waterTarget || 0 : 0;
+
     // get the counter from the localStorage
     const initialCount = parseInt(localStorage.getItem('waterCount')) || 0;
 
     const [count, setCount] = useState(initialCount)
+    const [color, setColor] = useState('red')
 
     // increment counter
     const handleIncrement = () => {
         const newCount = count + 0.2;
         setCount(Math.round(newCount * 100) / 100);
         localStorage.setItem('waterCount', newCount.toString());
+        if (count >= waterTarget) {
+            setColor("green");
+        }
     };
 
     // decrement counter
@@ -28,6 +35,9 @@ function WaterCounter() {
         const newCount = Math.max(0, count - 0.2);
         setCount(Math.round(newCount * 100) / 100);
         localStorage.setItem('waterCount', newCount.toString());
+        if (count < waterTarget) {
+            setColor("blue");
+        }
     };
 
     // reset counter at midnight
@@ -52,7 +62,7 @@ function WaterCounter() {
     }, [count])
 
     return (
-        <ButtonGroup fullWidth={true} className='mt-3' color="blue">
+        <ButtonGroup fullWidth={true} className='mt-3' color={color}>
             <Button onClick={handleDecrement}><MinusCircleIcon /></Button>
             <Button disabled={true}>{count} L</Button>
             <Button onClick={handleIncrement}><PlusCircleIcon /></Button>
