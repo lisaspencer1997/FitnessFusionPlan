@@ -1,4 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  Button,
+} from "@material-tailwind/react";
 
 const CountdownComponent = () => {
   const [countdown, setCountdown] = useState(null);
@@ -41,10 +51,23 @@ const CountdownComponent = () => {
   return (
     <div>
       {countdown !== null ? (
-        <p>
-          Milestone: {localStorage.getItem('FitnessFusionConfig') && JSON.parse(localStorage.getItem('FitnessFusionConfig')).milestoneName}<br />
-          Countdown: {countdown}
-        </p>
+        <div>
+          <CardBody>
+            <Typography variant="h5" color="blue-gray" className="mb-2">
+              Good luck with your {localStorage.getItem('FitnessFusionConfig') && JSON.parse(localStorage.getItem('FitnessFusionConfig')).milestoneName}!
+            </Typography>
+          </CardBody>
+          <CardFooter className="mx-auto">
+            <Popover>
+              <PopoverHandler>
+                <Button className='w-full mt-auto'>{countdown}</Button>
+              </PopoverHandler>
+              <PopoverContent>
+                It's time to train for your {localStorage.getItem('FitnessFusionConfig') && JSON.parse(localStorage.getItem('FitnessFusionConfig')).milestoneName}!
+              </PopoverContent>
+            </Popover>
+          </CardFooter>
+        </div>
       ) : (
         <p>No milestone data found</p>
       )}
