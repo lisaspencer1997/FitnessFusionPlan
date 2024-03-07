@@ -107,7 +107,7 @@ const ActivityPlanner = () => {
 
                     {/* TABLE HEADER */}
                     <thead>
-                        <tr className='border-blue-gray-100 bg-blue-gray-50'>
+                        <tr className='border-blue-gray-100 bg-blue-gray-50 h-10'>
 
                             {/* HEADER MAP */}
                             {TABLE_HEAD.map((head, i) => (
@@ -123,17 +123,6 @@ const ActivityPlanner = () => {
                                     </Typography>
                                 </th>
                             ))}
-                            <div className="p-2">
-                                <Button
-                                    onClick={clearLocalStorageAndContent}
-                                    color='red'
-                                    fullWidth={true}
-                                    ripple={true}
-                                    size='lg'
-                                >
-                                    <FontAwesomeIcon icon={faTrash} />
-                                </Button>
-                            </div>
                         </tr>
                     </thead>
 
@@ -196,6 +185,17 @@ const ActivityPlanner = () => {
                         ))}
                     </tbody>
                 </table>
+                <div className="p-2">
+                    <Button
+                        onClick={clearLocalStorageAndContent}
+                        color='red'
+                        fullWidth={true}
+                        ripple={true}
+                        size='lg'
+                    >
+                        <FontAwesomeIcon icon={faTrash} />
+                    </Button>
+                </div>
             </Card>
         </div>
     )
