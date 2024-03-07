@@ -10,7 +10,7 @@ import UserForm from './pages/UserForm';
 function App() {
 
   return (
-    <div className='bg-gray-200 h-dvh'>
+    <div className='bg-gray-300 h-full'>
       <Router>
         <div className="flex flex-row gap-2">
           <div>
