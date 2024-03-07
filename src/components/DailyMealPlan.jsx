@@ -6,12 +6,22 @@ import {
     Typography,
     CardBody
 } from "@material-tailwind/react";
+import { NavLink } from 'react-router-dom';
 
 const DailyMealPlan = ({ mealPlan, currentDay }) => {
     const todayMeals = mealPlan[currentDay];
 
     if (!todayMeals) {
-        return <div>No meals found for today.</div>;
+        return (
+            <div>
+                <CardBody className="text-center">
+                    <Typography variant="h6" color="blue-gray">
+                        No meals found! 😪 <br/>
+                        Visit the <span className="underline"><NavLink to="/food-planner" end>Weekly Food Planner</NavLink></span> to register a weekly plan!
+                    </Typography>
+                </CardBody>
+            </div>
+        )
     }
 
     return (
