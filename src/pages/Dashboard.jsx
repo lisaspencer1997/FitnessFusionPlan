@@ -1,9 +1,8 @@
-import WaterCounter from '../components/WaterCounter'
-import Playlist from '../components/Playlist'
 import NutriCheck from "../components/NutriCheck";
 import Header from '../components/Header';
 import Countdown from '../components/Countdown';
 import FitnessCarousel from '../components/FitnessCarousel';
+import NextMealWidget from "../components/NextMealWidget";
 import {
     Card,
     Typography,
@@ -33,9 +32,7 @@ const Dashboard = () => {
 
             {/* Widget Next Food */}
             <Card className='col-start-5 col-span-2'>
-                <Typography variant="h5" color="blue-gray">
-                    Widget 3
-                </Typography>
+                <NextMealWidget />
             </Card>
 
             {/* Nutri Check Card */}
