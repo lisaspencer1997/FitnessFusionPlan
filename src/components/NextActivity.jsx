@@ -7,6 +7,7 @@ import {
     Typography,
     CardBody
 } from "@material-tailwind/react";
+import { NavLink } from 'react-router-dom';
 
 const NextActivity = () => {
     const [nextActivity, setNextActivity] = useState('');
@@ -46,9 +47,24 @@ const NextActivity = () => {
         }
     }, []);
 
+    console.log(nextActivity)
+    // if (nextActivity) {
+    //     return (
+    //         <div>
+    //             <CardBody className="text-center">
+    //                 <Typography variant="h6" color="blue-gray">
+    //                     No upcoming activity. 🚶🏽 <br/>
+    //                     Visit the <span className="underline"><NavLink to="/activity-planner" end>Monthly Activity Planner</NavLink></span> to add some!
+    //                 </Typography>
+    //             </CardBody>
+    //         </div>
+    //     )
+    // }
+
 
     return (
         <div>
+            
             <CardBody>
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                     Here is your upcoming activity:
