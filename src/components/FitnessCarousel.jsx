@@ -1,23 +1,46 @@
 import { Carousel } from "@material-tailwind/react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const FitnessCarousel = () => {
+  const [photoUrls, setPhotoUrls] = useState([]);
+
+  // fetch once only, when the component is being mounted
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      try {
+        const response = await axios.get('https://api.unsplash.com/photos/random', {
+          params: {
+            query: 'fitness',
+            count: 10,
+            client_id: '4kHQS1PZnjWB8ZHGDVYjgUbgZ4qJTG9epRvn4GSaNN4',
+          },
+        });
+        // store in a variable
+        const newPhotoUrls = response.data.map((photoData) => photoData.urls.regular);
+        setPhotoUrls(newPhotoUrls);
+      } catch (error) {
+        console.error('Error fetching photos:', error);
+      }
+    };
+
+    fetchPhotos();
+  }, []);
  
-export function FitnessCarousel() {
   return (
-    <Carousel className="rounded-xl">
-      <img
-        src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-        alt="image 1"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-        alt="image 2"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-        alt="image 3"
-        className="h-full w-full object-cover"
-      />
+    // return the carousel  and
+    <Carousel className="rounded-xl w-full h-full">
+      {/* map over the URL */}
+      {photoUrls.map((url, index) => (
+        <img
+          key={index}
+          src={url}
+          autoplay={true}
+          loop={true}
+          alt="fitness image carousel"
+          className="h-full w-full object-cover"
+        />
+      ))}
     </Carousel>
   );
 }
