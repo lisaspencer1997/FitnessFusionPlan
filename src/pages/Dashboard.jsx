@@ -1,9 +1,10 @@
-import NutriCheck from "../components/NutriCheck";
+import NutriFact from "../components/NutriFact";
 import Header from '../components/Header';
 import Countdown from '../components/Countdown';
 import FitnessCarousel from '../components/FitnessCarousel';
 import NextMealWidget from "../components/NextMealWidget";
 import NextActivity from "../components/NextActivity";
+import ExerciseComponent from "../components/ExerciseComponent"
 import {
     Card,
     Typography,
@@ -36,22 +37,19 @@ const Dashboard = () => {
 
             {/* Nutri Check Card */}
             <Card className='col-start-1 col-span-3'>
-                <Typography variant="h5" color="blue-gray" className="">
-                    Nutri Check
-                </Typography>
+            <NutriFact />
+
             </Card>
 
             <div className='col-span-3 grid grid-rows-subgrid gap-4 row-span-2'>
                 {/* Recipe Feed */}
                 <Card>
-                    <Typography variant="h5" color="blue-gray" className="">
-                        Nutri Check
-                    </Typography>
+                    <ExerciseComponent />
                 </Card>
 
                 {/* Fitness Carousel */}
                 <Card className='flex-1'>
-                    <FitnessCarousel />
+                    {/* <FitnessCarousel /> */}
                 </Card>
             </div>
         </div>
