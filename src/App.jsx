@@ -9,10 +9,10 @@ import Header from './components/Header';
 function App() {
 
   return (
-    <div>
+    <div className='h-screen'>
       <Router>
         <Header />
-        <div className="mx-8">
+        <div className="mx-8 h-[calc(100%-7rem)]">
           <Routes>
               <Route path='/' element={<Dashboard />} />
               <Route path='/activity-planner' element={<ActivityPlanner />} />
