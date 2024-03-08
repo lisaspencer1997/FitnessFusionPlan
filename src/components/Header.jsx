@@ -17,7 +17,7 @@ const Header = () => {
         <Typography
           variant="h3"
           className="ms-4 me-auto py-1"
-        > Nicola
+        > Dashboard
         </Typography>
         <ProfileAvatar />
       </div>
