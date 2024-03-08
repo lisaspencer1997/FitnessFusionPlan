@@ -9,8 +9,8 @@
 
 ## Preview
 
-![Alt text](assets/images/FitnessFusionPlan-app.png)
-![Alt text](assets/images/FitnessFusionPlan-sidebar.png)
+![Application Screenshot](assets/images/FitnessFusionPlan-app.png)
+![Sidebar Screenshot](assets/images/FitnessFusionPlan-sidebar.png)
 
 
 ## About the Project
@@ -19,7 +19,7 @@
 
 Our task for this project was to use everything we’ve learned over the course of this bootcamp to create a real-world client-side single-page application that you’ll be able to showcase to potential employers.
 
-To that end, we have created an interactive dashboard app for the health conscious, which allows users to see, store and organise all their fitness-related data and tasks in a single place.
+To that end, we have created a responsive, interactive dashboard app for the health conscious, which allows users to see, store and organise all their fitness-related data and tasks in a single place.
 
 ### Project Goal
 
@@ -48,7 +48,7 @@ This project was developed using:
 
 #### Usage
 
-The webpage can be viewed in a traditional desktop web browser or tablet once deployed.
+The webpage is responsive and can be viewed in a traditional desktop web browser, tablet or phone once deployed.
 
 
 ## Deployed Application
