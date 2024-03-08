@@ -137,7 +137,7 @@ const Form = () => {
   };
 
   const StepContent = [
-    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4 overflow-hidden">
+    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
 
       <Typography variant="h5" className="col-start-1 col-span-2">
         Tell us a bit of yourself 😀
@@ -225,7 +225,7 @@ const Form = () => {
 
     </div>,
 
-    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4 overflow-hidden">
+    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
 
       <Typography variant="h5" className="col-start-1 col-span-2">
         What's your goals? 🎯
@@ -321,7 +321,7 @@ const Form = () => {
 
     </div>,
 
-    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4 overflow-hidden">
+    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
 
       <Typography variant="h5" className="col-start-1 col-span-2">
         Let's talk about Food! 🥬
@@ -360,7 +360,7 @@ const Form = () => {
 
   return (
     //Form component
-    <form className="w-full flex flex-col justify-between" onSubmit={handleSubmit}>
+    <form className="w-full flex flex-col justify-between h-[calc(100%)]" onSubmit={handleSubmit}>
 
       {/* Displaying related content based on the stepper position */}
       {StepContent[activeStep]}
@@ -373,7 +373,7 @@ const Form = () => {
         {alertMessage}
       </Alert>
 
-      <div className="mb-8 mt-auto">
+      <div>
         {/* Stepper component */}
         <Stepper
           activeStep={activeStep}
