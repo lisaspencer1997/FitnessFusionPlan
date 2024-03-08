@@ -62,7 +62,7 @@ The project is now live and was deployed using:
 
 The deployed application and the corresponding code can be reached via the following links:
 
-Deployed website: (https://joyful-unicorn-bbd022.netlify.app/)
+Deployed website: (https://deploy-preview-21--fitnessfusionplanner.netlify.app/)
 
 Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 
