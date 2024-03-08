@@ -3,16 +3,21 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import ProfileAvatar from './ProfileAvatar';
- 
-const Header = ( props ) => {
+import Sidebar from './Sidebar';
+
+const Header = () => {
  
   return (
-    <Navbar width="w-full" fullWidth={true} className="h-20 flex flex-col justify-center rounded-none shadow-xl shadow-blue-gray-900/5">
-      <div className="flex items-center justify-between text-blue-gray-900">
+    <Navbar
+      fullWidth={true}
+      blurred={true}
+      className="flex flex-row justify-between rounded-none shadow-xl shadow-blue-gray-900/10 z-50 sticky top-0 mb-8">
+      <Sidebar />
+      <div className="flex text-blue-gray-900 w-full">
         <Typography
-          variant="h4"
-          className="mx-4 cursor-pointer py-1.5"
-        > {props.heading}
+          variant="h3"
+          className="ms-4 me-auto py-1"
+        > Nicola
         </Typography>
         <ProfileAvatar />
       </div>
