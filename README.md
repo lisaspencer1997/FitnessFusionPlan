@@ -69,7 +69,7 @@ The deployed project looks like this:
 
 The deployed application and the corresponding code can be reached via the following links:
 
-Deployed website: (https://sonictrain.github.io/dinner-and-a-movie/)
+Deployed website: (https://joyful-unicorn-bbd022.netlify.app/)
 
 Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 
