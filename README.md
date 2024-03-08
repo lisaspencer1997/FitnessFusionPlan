@@ -1,13 +1,16 @@
 # Fitness Fusion Plan
 
+
 ## Table of Contents
 - [Preview](#Preview)
 - [About the Project](#About)
 - [Deployed Application](#Deployed)
 
+
 ## Preview
 
 ![Alt text](assets/images/dinner&movie-hero.png)
+
 
 ## About the Project
 
@@ -15,7 +18,7 @@
 
 Our task for this project was to use everything we’ve learned over the course of this bootcamp to create a real-world client-side single-page application that you’ll be able to showcase to potential employers.
 
-To that end, we have created an interactive dashboard app that...
+To that end, we have created an interactive dashboard app for the health conscious, which allows users to see, store and organise all their fitness-related data and tasks in a single place.
 
 ### Project Goal
 
@@ -23,15 +26,7 @@ In addition to practicing the skills we have acquired during this bootcamp, anot
 
 ### Project Features
 
-* A real-world client-side single-page application
-
-* Uses ReactJS
-
-* Uses Node
-
-* Uses Tailwind CSS
-
-* Uses Edamam API
+* A responsive real-world client-side single-page application
 
 * Has both GET and POST routes for retrieving and adding new data.
 
@@ -40,17 +35,14 @@ In addition to practicing the skills we have acquired during this bootcamp, anot
 * Polished front end/UI.
 
 
-
 ### Built With
 
 This project was developed using:
 
 [![HTML][html-badge]][html-url]
-[![CSS][css-badge]][css-url]
-[![JavaScript][js-badge]][js-url]
-[![jQuery][jquery-badge]][jquery-url]
-[![Bootstrap][boostrap-badge]][bootstrap-url]
-[![Axios][axios-badge]][axios-url]
+[![Node][node-badge]][node-url]
+[![React JS][react-badge]][react-url]
+[![Tailwind CSS][tailwind-badge]][tailwind-url]
 [![Edamam API][edamam-badge]][edamam-url]
 
 
@@ -58,15 +50,18 @@ This project was developed using:
 
 The webpage is responsive and can be viewed in a traditional desktop web browser, table or phone once deployed.
 
+
 ## Deployed Application
 
 The project is now live.
+
 
 ### Deployed project
 
 The deployed project looks like this:
 
 ![Dinner and a Movie App-screencapture][project-gif]
+
 
 ### Links
 
@@ -84,20 +79,21 @@ Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 [JavaScript-badge]: https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=Javascript&logoColor=white
 [jquery-badge]: https://img.shields.io/badge/jQuery-blue?style=for-the-badge&logo=jquery&logoColor=white
 [boostrap-badge]: https://img.shields.io/badge/Bootstrap-purple?style=for-the-badge&logo=bootstrap&logoColor=white
+[node-badge]: https://img.shields.io/badge/node.js-green?logo=node.js&logoColor=white
+[react-badge]: https://img.shields.io/badge/react-blue?logo=react&logoColor=white
+[tailwind-badge]: https://img.shields.io/badge/Tailwind%20CSS-blue?logo=tailwind%20css&logoColor=white
+[edamam-badge]: https://img.shields.io/badge/Edamam_API-%23005a00?style=for-the-badge
+
 [html-url]: https://www.w3schools.com/html/
 [css-url]: https://www.w3schools.com/css/default.asp
 [js-url]: https://www.w3schools.com/js/default.asp
 [jquery-url]: https://jquery.com/
 [bootstrap-url]: https://getbootstrap.com/
-[axios-badge]: https://img.shields.io/badge/Axios-%234B0082?style=for-the-badge&logo=Axios&logoColor=white
-[axios-url]: https://axios-http.com/
-[fa-badge]: https://img.shields.io/badge/FontAwesome-%23228ae6?style=for-the-badge&logo=FontAwesome&logoColor=white
-[fa-url]: https://fontawesome.com/
-[tmdb-badge]: https://img.shields.io/badge/TMDB_API-%2301b4e4?style=for-the-badge
-[tmdb-url]: https://developer.themoviedb.org/reference/intro/getting-started
-[edamam-badge]: https://img.shields.io/badge/Edamam_API-%23005a00?style=for-the-badge
+[node-url]: https://nodejs.org/en/about
+[react-url]: https://react.dev/
+[tailwind-url]: https://tailwindcss.com/
 [edamam-url]: https://www.edamam.com/
-[project-gif]: ./assets/images/project.gif
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
