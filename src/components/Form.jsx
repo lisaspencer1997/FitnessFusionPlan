@@ -19,6 +19,14 @@ import {
   Option
 } from "@material-tailwind/react";
 
+const Icon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+    </svg>
+  )
+}
+
 const Form = () => {
 
   const [dobDate, setDobDate] = React.useState();
@@ -129,109 +137,39 @@ const Form = () => {
   };
 
   const StepContent = [
-    <div className="flex flex-col gap-4">
-      <Typography variant="h5">
+    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
+
+      <Typography variant="h5" className="col-start-1 col-span-2">
         Tell us a bit of yourself 😀
       </Typography>
-      <Input
-        label="How shall I call you?"
-        placeholder=""
-        name="name"
-        value={formData.name}
-        onChange={handleInputChange}
-      />
 
-      <div className='flex flex-row gap-2'>
-        <Popover placement="bottom">
-          <PopoverHandler>
-            <Input
-              label="Date of Birthday"
-              mode="single"
-              onChange={() => null}
-              value={dobDate ? format(dobDate, "PPP") : ""}
-            />
-          </PopoverHandler>
-          <PopoverContent>
-            <DayPicker
-              mode="single"
-              selected={dobDate}
-              onSelect={handleDobDate}
-              showOutsideDays
-              className="border-0"
-              classNames={{
-                caption: "flex justify-center py-2 mb-4 relative items-center",
-                caption_label: "text-sm font-medium text-gray-900",
-                nav: "flex items-center",
-                nav_button:
-                  "h-6 w-6 bg-transparent hover:bg-blue-gray-50 p-1 rounded-md transition-colors duration-300",
-                nav_button_previous: "absolute left-1.5",
-                nav_button_next: "absolute right-1.5",
-                table: "w-full border-collapse",
-                head_row: "flex font-medium text-gray-900",
-                head_cell: "m-0.5 w-9 font-normal text-sm",
-                row: "flex w-full mt-2",
-                cell: "text-gray-600 rounded-md h-9 w-9 text-center text-sm p-0 m-0.5 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-gray-900/20 [&:has([aria-selected].day-outside)]:text-white [&:has([aria-selected])]:bg-gray-900/50 first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
-                day: "h-9 w-9 p-0 font-normal",
-                day_range_end: "day-range-end",
-                day_selected:
-                  "rounded-md bg-gray-900 text-white hover:bg-gray-900 hover:text-white focus:bg-gray-900 focus:text-white",
-                day_today: "rounded-md bg-gray-200 text-gray-900",
-                day_outside:
-                  "day-outside text-gray-500 opacity-50 aria-selected:bg-gray-500 aria-selected:text-gray-900 aria-selected:bg-opacity-10",
-                day_disabled: "text-gray-500 opacity-50",
-                day_hidden: "invisible",
-              }}
-              components={{
-                IconLeft: ({ ...props }) => (
-                  <ChevronLeftIcon {...props} className="h-4 w-4 stroke-2" />
-                ),
-                IconRight: ({ ...props }) => (
-                  <ChevronRightIcon {...props} className="h-4 w-4 stroke-2" />
-                ),
-              }}
-            />
-          </PopoverContent>
-        </Popover>
-        <div className="relative flex w-full">
-            <AvatarComponent />
-        </div>
+      <div className="col-start-1 col-span-2">
+        <Input
+          label="How shall I call you?"
+          placeholder=""
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange} />
       </div>
-      <Input
-        label="Please paste here your favorite public Spotify Playlist"
-        placeholder={spotifyPlaceholder}
-        name="playlist"
-        value={formData.playlist}
-        onChange={handleInputChange}
-      />
-    </div>,
-    <div className="flex flex-col gap-4">
 
-      <Typography variant="h5">
-        What's your goals? 🎯
-      </Typography>
+      <div className='col-start-1 col-span-2 flex flex-col gap-2 md:flex-row'>
 
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-row gap-2">
-          <Input label="Milestone Name"
-            placeholder=" "
-            name="milestoneName"
-            value={formData.milestoneName}
-            onChange={handleInputChange}
-          />
-
+        <div className="w-full">
           <Popover placement="bottom">
             <PopoverHandler>
               <Input
-                label="Milestone Date"
+                label="Date of Birthday"
+                mode="single"
                 onChange={() => null}
-                value={milestoneDate ? format(milestoneDate, "PPP") : ""}
+                value={dobDate ? format(dobDate, "PPP") : ""}
+                className="w-full"
               />
             </PopoverHandler>
             <PopoverContent>
               <DayPicker
                 mode="single"
-                selected={milestoneDate}
-                onSelect={handleMilestoneDate}
+                selected={dobDate}
+                onSelect={handleDobDate}
                 showOutsideDays
                 className="border-0"
                 classNames={{
@@ -269,43 +207,127 @@ const Form = () => {
             </PopoverContent>
           </Popover>
         </div>
-        <div className="w-full">
-          <Input
-            type="number"
-            label="Your ideal weight"
-            name="weight"
-            value={formData.weight}
-            onChange={handleInputChange}
-            icon={<FontAwesomeIcon icon={faWeightScale} />} />
-          <Typography
-            variant="small"
-            color="gray"
-            className="mt-2 flex items-center gap-1 font-normal"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="-mt-px h-4 w-4"
-            >
-              <path
-                fillRule="evenodd"
-                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Please insert a number in Kg.
-          </Typography>
-        </div>
-      </div>
-    </div>,
-    <div className="flex flex-col gap-4">
 
-      <Typography variant="h5">
+        <div className="relative flex w-full">
+          <AvatarComponent />
+        </div>
+
+      </div>
+
+      <div className="col-start-1 col-span-2">
+        <Input
+          label="Please paste here your favorite public Spotify Playlist"
+          placeholder={spotifyPlaceholder}
+          name="playlist"
+          value={formData.playlist}
+          onChange={handleInputChange} />
+      </div>
+
+    </div>,
+
+    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
+
+      <Typography variant="h5" className="col-start-1 col-span-2">
+        What's your goals? 🎯
+      </Typography>
+
+      <div className="col-start-1 col-span-2 flex flex-col gap-2 md:flex-row">
+
+        <Input label="Milestone Name"
+          placeholder=" "
+          name="milestoneName"
+          value={formData.milestoneName}
+          onChange={handleInputChange} />
+
+        <Popover placement="bottom">
+          <PopoverHandler>
+            <Input
+              label="Milestone Date"
+              onChange={() => null}
+              value={milestoneDate ? format(milestoneDate, "PPP") : ""}
+            />
+          </PopoverHandler>
+          <PopoverContent>
+            <DayPicker
+              mode="single"
+              selected={milestoneDate}
+              onSelect={handleMilestoneDate}
+              showOutsideDays
+              className="border-0"
+              classNames={{
+                caption: "flex justify-center py-2 mb-4 relative items-center",
+                caption_label: "text-sm font-medium text-gray-900",
+                nav: "flex items-center",
+                nav_button:
+                  "h-6 w-6 bg-transparent hover:bg-blue-gray-50 p-1 rounded-md transition-colors duration-300",
+                nav_button_previous: "absolute left-1.5",
+                nav_button_next: "absolute right-1.5",
+                table: "w-full border-collapse",
+                head_row: "flex font-medium text-gray-900",
+                head_cell: "m-0.5 w-9 font-normal text-sm",
+                row: "flex w-full mt-2",
+                cell: "text-gray-600 rounded-md h-9 w-9 text-center text-sm p-0 m-0.5 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-gray-900/20 [&:has([aria-selected].day-outside)]:text-white [&:has([aria-selected])]:bg-gray-900/50 first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+                day: "h-9 w-9 p-0 font-normal",
+                day_range_end: "day-range-end",
+                day_selected:
+                  "rounded-md bg-gray-900 text-white hover:bg-gray-900 hover:text-white focus:bg-gray-900 focus:text-white",
+                day_today: "rounded-md bg-gray-200 text-gray-900",
+                day_outside:
+                  "day-outside text-gray-500 opacity-50 aria-selected:bg-gray-500 aria-selected:text-gray-900 aria-selected:bg-opacity-10",
+                day_disabled: "text-gray-500 opacity-50",
+                day_hidden: "invisible",
+              }}
+              components={{
+                IconLeft: ({ ...props }) => (
+                  <ChevronLeftIcon {...props} className="h-4 w-4 stroke-2" />
+                ),
+                IconRight: ({ ...props }) => (
+                  <ChevronRightIcon {...props} className="h-4 w-4 stroke-2" />
+                ),
+              }}
+            />
+          </PopoverContent>
+        </Popover>
+      </div>
+
+      <div className="col-start-1 col-span-2">
+        <Input
+          type="number"
+          label="Your ideal weight"
+          name="weight"
+          value={formData.weight}
+          onChange={handleInputChange}
+          icon={<FontAwesomeIcon icon={faWeightScale} />} />
+        <Typography
+          variant="small"
+          color="gray"
+          className="mt-2 flex items-center gap-1 font-normal"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="-mt-px h-4 w-4"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Please insert a number in Kg.
+        </Typography>
+      </div>
+
+    </div>,
+
+    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
+
+      <Typography variant="h5" className="col-start-1 col-span-2">
         Let's talk about Food! 🥬
       </Typography>
 
-      <div className="flex flex-row gap-2">
+      <div className="col-start-1 col-span-2 flex flex-col gap-2 md:flex-row">
 
         <div className="w-full">
           <Select
@@ -338,12 +360,21 @@ const Form = () => {
 
   return (
     //Form component
-    <form className="w-full h-[calc(100%-7rem)] p-10 flex flex-col gap-8 bg-white my-4 rounded-lg" onSubmit={handleSubmit}>
-
+    <form className="w-full flex flex-col justify-between h-[calc(100%)]" onSubmit={handleSubmit}>
+      <div>
       {/* Displaying related content based on the stepper position */}
-      {StepContent[activeStep]}
+        {StepContent[activeStep]}
+        <Alert
+          icon={<Icon />}
+          open={openAlert}
+          onClose={() => setOpenAlert(false)}
+          // Change color of the Alert container based on the status of the form
+          className={`rounded-none border-l-4 font-medium ${success ? 'border-s-5 bg-teal-800 border-teal-900	rounded-md my-4 text-white' : 'border-s-5 bg-red-500 border-red-900	rounded-md my-4 text-white'}`}>
+          {alertMessage}
+        </Alert>
+      </div>
 
-      <div className="mt-auto">
+      <div>
         {/* Stepper component */}
         <Stepper
           activeStep={activeStep}
