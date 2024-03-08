@@ -19,6 +19,14 @@ import {
   Option
 } from "@material-tailwind/react";
 
+const Icon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+    </svg>
+  )
+}
+
 const Form = () => {
 
   const [dobDate, setDobDate] = React.useState();
@@ -353,10 +361,17 @@ const Form = () => {
   return (
     //Form component
     <form className="w-full flex flex-col justify-between" onSubmit={handleSubmit}>
-      {/* <form className="w-full h-[calc(100%-7rem)] p-10 flex flex-col gap-8 bg-white my-4 rounded-lg" onSubmit={handleSubmit}> */}
 
       {/* Displaying related content based on the stepper position */}
       {StepContent[activeStep]}
+      <Alert
+        icon={<Icon />}
+        open={openAlert}
+        onClose={() => setOpenAlert(false)}
+        // Change color of the Alert container based on the status of the form
+        className={`rounded-none border-l-4 font-medium ${success ? 'border-s-5 bg-teal-800 border-teal-900	rounded-md my-4 text-white' : 'border-s-5 bg-red-500 border-red-900	rounded-md my-4 text-white'}`}>
+        {alertMessage}
+      </Alert>
 
       <div className="mb-8 mt-auto">
         {/* Stepper component */}
