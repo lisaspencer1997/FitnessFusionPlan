@@ -9,7 +9,8 @@
 
 ## Preview
 
-![Alt text](assets/images/dinner&movie-hero.png)
+![Alt text](assets/images/FitnessFusionPlan-app.png)
+![Alt text](assets/images/FitnessFusionPlan-sidebar.png)
 
 
 ## About the Project
