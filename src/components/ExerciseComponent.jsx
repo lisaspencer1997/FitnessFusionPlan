@@ -84,12 +84,12 @@ const ExerciseComponent = () => {
   ];
 
   return (
-    <div className='w-full p-10'>
+    <div className='w-full'>
       {/* heading */}
-      <Typography variant="h4" color="blue-gray">
+      <Typography variant="h4" color="blue-gray" className='p-10 pb-0'>
         Exercise Finder
       </Typography>
-      <div className='w-full mt-4'>
+      <div className='w-full mt-4 px-10'>
         {/* select component */}
         <Select
           label="Select a muscle you want to train"
@@ -136,11 +136,12 @@ const ExerciseComponent = () => {
               </CardBody>
               <CardFooter className="pt-0">
                 {/* tabs selector */}
-                <Tabs value="dashboard">
+                <Tabs
+                  value="difficoulty-selector">
                   <TabsHeader>
-                    {data.map(({ label, value, icon }) => (
-                      <Tab key={value} value={value}>
-                        <div className="flex items-center gap-2">
+                    {data.map(({ label, value, icon }, i) => (
+                      <Tab key={i} value={value}>
+                        <div className="flex flex-col items-center md:flex-row">
                           {React.createElement(icon, { className: "w-5 h-5" })}
                           {label}
                         </div>
@@ -148,8 +149,8 @@ const ExerciseComponent = () => {
                     ))}
                   </TabsHeader>
                   <TabsBody>
-                    {data.map(({ value, desc }) => (
-                      <TabPanel key={value} value={value}>
+                    {data.map(({ value, desc }, i) => (
+                      <TabPanel key={i} value={value}>
                         {desc}
                       </TabPanel>
                     ))}

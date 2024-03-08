@@ -36,15 +36,15 @@ const Sidebar = () => {
     setOpen(open === value ? 0 : value);
   };
 
-  const [openAlert, setOpenAlert] = React.useState(true);
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const [openAlert, setOpenAlert] = useState(true);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
  
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
 
 
   return (
-    <>
+    <div>
       <IconButton variant="text" size="lg" onClick={openDrawer}>
         {isDrawerOpen ? (
           <XMarkIcon className="h-8 w-8 stroke-2" />
@@ -131,7 +131,7 @@ const Sidebar = () => {
           </Accordion>
         </Card>
       </Drawer>
-    </>
+    </div>
   );
 }
 
