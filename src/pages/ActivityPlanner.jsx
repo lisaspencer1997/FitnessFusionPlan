@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Typography, Input, Chip, Button } from "@material-tailwind/react";
-import Header from '../components/Header';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -84,7 +82,6 @@ const ActivityPlanner = () => {
 
     return (
         <div className='flex flex-col gap-2 h-svh overflow-auto'>
-            <Header heading='Weekly Activity Planner' />
             <Card className="h-svh overflow-y-scroll">
                 <table className="text-left">
 
