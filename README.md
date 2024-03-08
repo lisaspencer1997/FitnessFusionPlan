@@ -58,14 +58,6 @@ The project is now live and was deployed using:
 [![Netlify][netlify-badge]][netlify-url]
 
 
-
-### Deployed project
-
-The deployed project looks like this:
-
-![Dinner and a Movie App-screencapture][project-gif]
-
-
 ### Links
 
 The deployed application and the corresponding code can be reached via the following links:
