@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import {
   Navbar,
   Typography,
@@ -7,19 +6,8 @@ import ProfileAvatar from './ProfileAvatar';
  
 const Header = ( props ) => {
  
-  const handleWindowResize = () =>
-    window.innerWidth >= 960 && setOpenNav(false);
- 
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
- 
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
- 
   return (
-    <Navbar width="w-full" fullWidth={true} className="h-20 flex flex-col justify-center rounded-xl shadow-xl shadow-blue-gray-900/5">
+    <Navbar width="w-full" fullWidth={true} className="h-20 flex flex-col justify-center rounded-none shadow-xl shadow-blue-gray-900/5">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           variant="h4"

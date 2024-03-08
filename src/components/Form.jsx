@@ -50,6 +50,8 @@ const Form = () => {
     });
   };
 
+  const spotifyPlaceholder = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EIdeU4uQxY7At?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+
   const [activeStep, setActiveStep] = useState(0);
   const [isLastStep, setIsLastStep] = useState(false);
   const [isFirstStep, setIsFirstStep] = useState(false);
@@ -66,6 +68,7 @@ const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
     dob: "",
+    playlist: "",
     milestoneName: "",
     milestoneDate: "",
     macroNutrient: "",
@@ -193,7 +196,13 @@ const Form = () => {
             <AvatarComponent />
         </div>
       </div>
-
+      <Input
+        label="Please paste here your favorite public Spotify Playlist"
+        placeholder={spotifyPlaceholder}
+        name="playlist"
+        value={formData.playlist}
+        onChange={handleInputChange}
+      />
     </div>,
     <div className="flex flex-col gap-4">
 
@@ -329,7 +338,7 @@ const Form = () => {
 
   return (
     //Form component
-    <form className="w-full h-[calc(100%-5rem)] p-10 flex flex-col gap-8" onSubmit={handleSubmit}>
+    <form className="w-full h-[calc(100%-7rem)] p-10 flex flex-col gap-8 bg-white my-4 rounded-lg" onSubmit={handleSubmit}>
 
       {/* Displaying related content based on the stepper position */}
       {StepContent[activeStep]}
