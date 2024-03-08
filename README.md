@@ -9,7 +9,8 @@
 
 ## Preview
 
-![Alt text](assets/images/dinner&movie-hero.png)
+![Application Screenshot](assets/images/FitnessFusionPlan-app.png)
+![Sidebar Screenshot](assets/images/FitnessFusionPlan-sidebar.png)
 
 
 ## About the Project
@@ -18,7 +19,7 @@
 
 Our task for this project was to use everything we’ve learned over the course of this bootcamp to create a real-world client-side single-page application that you’ll be able to showcase to potential employers.
 
-To that end, we have created an interactive dashboard app for the health conscious, which allows users to see, store and organise all their fitness-related data and tasks in a single place.
+To that end, we have created a responsive, interactive dashboard app for the health conscious, which allows users to see, store and organise all their fitness-related data and tasks in a single place.
 
 ### Project Goal
 
@@ -47,7 +48,7 @@ This project was developed using:
 
 #### Usage
 
-The webpage can be viewed in a traditional desktop web browser or tablet once deployed.
+The webpage is responsive and can be viewed in a traditional desktop web browser, tablet or phone once deployed.
 
 
 ## Deployed Application
@@ -57,19 +58,11 @@ The project is now live and was deployed using:
 [![Netlify][netlify-badge]][netlify-url]
 
 
-
-### Deployed project
-
-The deployed project looks like this:
-
-![Dinner and a Movie App-screencapture][project-gif]
-
-
 ### Links
 
 The deployed application and the corresponding code can be reached via the following links:
 
-Deployed website: (https://sonictrain.github.io/dinner-and-a-movie/)
+Deployed website: (https://deploy-preview-21--fitnessfusionplanner.netlify.app/)
 
 Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 
