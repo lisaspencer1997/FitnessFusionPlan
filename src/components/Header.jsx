@@ -11,7 +11,7 @@ const Header = () => {
     <Navbar
       fullWidth={true}
       blurred={true}
-      className="flex flex-row justify-between rounded-none shadow-xl shadow-blue-gray-900/10 z-50 sticky top-0 mb-8">
+      className="flex flex-row h-20 justify-between rounded-none shadow-xl shadow-blue-gray-900/10 z-50 sticky top-0 mb-8">
       <Sidebar />
       <div className="flex text-blue-gray-900 w-full">
         <Typography

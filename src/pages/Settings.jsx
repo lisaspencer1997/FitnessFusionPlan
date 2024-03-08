@@ -2,7 +2,9 @@ import Form from '../components/Form'
 
 const Settings = () => {
     return (
-        <Form />
+        <div>
+            <Form />
+        </div>
     )
 }
 
