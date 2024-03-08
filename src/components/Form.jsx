@@ -361,17 +361,18 @@ const Form = () => {
   return (
     //Form component
     <form className="w-full flex flex-col justify-between h-[calc(100%)]" onSubmit={handleSubmit}>
-
+      <div>
       {/* Displaying related content based on the stepper position */}
-      {StepContent[activeStep]}
-      <Alert
-        icon={<Icon />}
-        open={openAlert}
-        onClose={() => setOpenAlert(false)}
-        // Change color of the Alert container based on the status of the form
-        className={`rounded-none border-l-4 font-medium ${success ? 'border-s-5 bg-teal-800 border-teal-900	rounded-md my-4 text-white' : 'border-s-5 bg-red-500 border-red-900	rounded-md my-4 text-white'}`}>
-        {alertMessage}
-      </Alert>
+        {StepContent[activeStep]}
+        <Alert
+          icon={<Icon />}
+          open={openAlert}
+          onClose={() => setOpenAlert(false)}
+          // Change color of the Alert container based on the status of the form
+          className={`rounded-none border-l-4 font-medium ${success ? 'border-s-5 bg-teal-800 border-teal-900	rounded-md my-4 text-white' : 'border-s-5 bg-red-500 border-red-900	rounded-md my-4 text-white'}`}>
+          {alertMessage}
+        </Alert>
+      </div>
 
       <div>
         {/* Stepper component */}
