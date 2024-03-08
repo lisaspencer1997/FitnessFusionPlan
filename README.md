@@ -26,11 +26,9 @@ In addition to practicing the skills we have acquired during this bootcamp, anot
 
 ### Project Features
 
-* A responsive real-world client-side single-page application
+* A real-world client-side single-page application
 
 * Has both GET and POST routes for retrieving and adding new data.
-
-* Deployed using Netlify.
 
 * Polished front end/UI.
 
@@ -43,17 +41,21 @@ This project was developed using:
 [![Node][node-badge]][node-url]
 [![React JS][react-badge]][react-url]
 [![Tailwind CSS][tailwind-badge]][tailwind-url]
+[![Vite][vite-badge]][vite-url]
 [![Edamam API][edamam-badge]][edamam-url]
 
 
 #### Usage
 
-The webpage is responsive and can be viewed in a traditional desktop web browser, table or phone once deployed.
+The webpage can be viewed in a traditional desktop web browser or tablet once deployed.
 
 
 ## Deployed Application
 
-The project is now live.
+The project is now live and was deployed using:
+
+[![Netlify][netlify-badge]][netlify-url]
+
 
 
 ### Deployed project
@@ -71,6 +73,8 @@ Deployed website: (https://sonictrain.github.io/dinner-and-a-movie/)
 
 Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 
+
+
 <!-- Button images and links -->
 
 [html-badge]: https://img.shields.io/badge/HTML-red?style=for-the-badge&logo=HTML5&logoColor=white
@@ -82,7 +86,10 @@ Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 [node-badge]: https://img.shields.io/badge/node.js-green?logo=node.js&logoColor=white
 [react-badge]: https://img.shields.io/badge/react-blue?logo=react&logoColor=white
 [tailwind-badge]: https://img.shields.io/badge/Tailwind%20CSS-blue?logo=tailwind%20css&logoColor=white
+[vite-badge]: https://img.shields.io/badge/vite-purple?logo=react&logoColor=white
 [edamam-badge]: https://img.shields.io/badge/Edamam_API-%23005a00?style=for-the-badge
+[netlify-badge]: https://img.shields.io/badge/Netlify-blue?logo=netlify&logoColor=white
+
 
 [html-url]: https://www.w3schools.com/html/
 [css-url]: https://www.w3schools.com/css/default.asp
@@ -92,7 +99,10 @@ Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 [node-url]: https://nodejs.org/en/about
 [react-url]: https://react.dev/
 [tailwind-url]: https://tailwindcss.com/
+[vite-url]: https://vitejs.dev/
 [edamam-url]: https://www.edamam.com/
+[netlify-url]: https://www.netlify.com/platform/?utm_medium=paid_search&utm_source=google&utm_campaign=GS_Connect:+Netlify+Brand&utm_term=netlify
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
