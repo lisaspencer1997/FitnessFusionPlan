@@ -9,8 +9,7 @@
 
 ## Preview
 
-![Application Screenshot](assets/images/FitnessFusionPlan-app.png)
-![Sidebar Screenshot](assets/images/FitnessFusionPlan-sidebar.png)
+![Application Screenshot](./public/images/FFPscreenshot.png)
 
 
 ## About the Project
@@ -62,7 +61,7 @@ The project is now live and was deployed using:
 
 The deployed application and the corresponding code can be reached via the following links:
 
-Deployed website: (https://deploy-preview-21--fitnessfusionplanner.netlify.app/)
+Deployed website: (https://fitnessfusionplanner.netlify.app/)
 
 Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 
@@ -98,8 +97,3 @@ Code repository: (https://github.com/lisaspencer1997/FitnessFusionPlan)
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
